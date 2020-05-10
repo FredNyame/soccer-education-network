@@ -1,1 +1,1 @@
-# Ghana Soccer Education Netwrok Theme
+# Ghana Soccer Education Network Theme

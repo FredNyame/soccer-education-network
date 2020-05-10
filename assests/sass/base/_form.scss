@@ -1,0 +1,265 @@
+/*Register styling*/
+#action {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 100px 0;
+}
+
+#action .sub_heading {
+  margin-bottom: 0;
+  margin-right: 30px;
+}
+
+.contact-wrapper {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#section-contact {
+  padding-bottom: 30px;
+}
+
+#contact-form-bck {
+  position: relative;
+  padding-top: 50px;
+}
+
+#contact-form-bck .contact-bck {
+  position: absolute;
+  width: 800px;
+  top: -134px;
+  left: -132px;
+  height: 800px;
+  z-index: -1;
+}
+
+#contact-form-bck .contact-bck svg {
+  width: 100%;
+  height: 100%;
+}
+
+#require {
+  color: #000;
+}
+
+.strong {
+  color: #F01D1D;
+  cursor: pointer;
+}
+
+#quick-note .mission_p {
+  max-width: 800px;
+  text-align: left;
+}
+
+.form-wrapper {
+  padding: 90px 50px 0 50px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+.form-wrapper .field {
+  position: relative;
+  width: 100%;
+  margin-bottom: 50px;
+  background: #fff;
+}
+
+.form-wrapper .field label {
+  font-size: 14px;
+  opacity: 0;
+  position: absolute;
+  background: #fff;
+  left: 20px;
+  top: -10px;
+  z-index: 1;
+}
+
+.form-wrapper .field #person {
+  width: 100%;
+  top: -35px;
+  left: 0;
+  font-size: 20px;
+  background: transparent;
+  opacity: 1;
+  -webkit-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+}
+
+.form-wrapper .field input[type="radio"] {
+  margin-right: 5px;
+}
+
+.form-wrapper .field .input-radio {
+  margin-right: 15px;
+  font-size: 18px;
+  color: #777;
+}
+
+.form-wrapper .field:first-child {
+  margin-bottom: 30px;
+}
+
+.form-wrapper .field .error {
+  border-bottom: 2px solid red;
+}
+
+.form-wrapper .field .error-message {
+  color: red;
+}
+
+.form-wrapper .field input[type="text"], .form-wrapper .field input[type="email"], .form-wrapper .field input[type="number"], .form-wrapper .field textarea {
+  width: 100%;
+  border: 0px;
+  padding: 1rem 0;
+  font-size: 18px;
+  border-bottom: 1px solid #888888;
+  transition: all 0.2s linear;
+}
+
+.form-wrapper .field input[type="text"].error, .form-wrapper .field input[type="email"].error, .form-wrapper .field input[type="number"].error, .form-wrapper .field textarea.error {
+  border-bottom: 2px solid red;
+}
+
+.form-wrapper .field input[type="text"]:focus, .form-wrapper .field input[type="email"]:focus, .form-wrapper .field input[type="number"]:focus, .form-wrapper .field textarea:focus {
+  border: 1px solid #4D90FE;
+  border-radius: 3px;
+  padding: 1rem 10px;
+  box-shadow: 0px 0px 1px 0px #4D90FE;
+  outline: none;
+}
+
+.form-wrapper .field input[type="text"]:focus::-webkit-input-placeholder, .form-wrapper .field input[type="email"]:focus::-webkit-input-placeholder, .form-wrapper .field input[type="number"]:focus::-webkit-input-placeholder, .form-wrapper .field textarea:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
+
+.form-wrapper .field input[type="text"]:focus:-ms-input-placeholder, .form-wrapper .field input[type="email"]:focus:-ms-input-placeholder, .form-wrapper .field input[type="number"]:focus:-ms-input-placeholder, .form-wrapper .field textarea:focus:-ms-input-placeholder {
+  opacity: 0;
+}
+
+.form-wrapper .field input[type="text"]:focus::-ms-input-placeholder, .form-wrapper .field input[type="email"]:focus::-ms-input-placeholder, .form-wrapper .field input[type="number"]:focus::-ms-input-placeholder, .form-wrapper .field textarea:focus::-ms-input-placeholder {
+  opacity: 0;
+}
+
+.form-wrapper .field input[type="text"]:focus::placeholder, .form-wrapper .field input[type="email"]:focus::placeholder, .form-wrapper .field input[type="number"]:focus::placeholder, .form-wrapper .field textarea:focus::placeholder {
+  opacity: 0;
+}
+
+.form-wrapper .field input[type="text"]:focus + label, .form-wrapper .field input[type="email"]:focus + label, .form-wrapper .field input[type="number"]:focus + label, .form-wrapper .field textarea:focus + label {
+  opacity: 1;
+}
+
+.form-wrapper .field input[type="submit"] {
+  border: 0;
+  cursor: pointer;
+}
+
+/*Quick infor Contact*/
+#quick-row {
+  padding-top: 0px;
+}
+
+.quick-contact {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.quick-contact .quick-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 0.5rem;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.quick-info{
+  text-align: center;
+}
+
+.quick-contact #quick-head {
+  background: url("https://frednyame.github.io/GhanaSoccerEducationNetwork/images/us.svg");
+}
+
+.quick-contact #quick-gh {
+  background: url("https://frednyame.github.io/GhanaSoccerEducationNetwork/images/gh.svg");
+}
+
+.quick-contact #quick-email {
+  background: url("https://frednyame.github.io/GhanaSoccerEducationNetwork/images/emailbck.svg");
+}
+
+.quick-contact #quick-telephone {
+  background: url("https://frednyame.github.io/GhanaSoccerEducationNetwork/images/phone.svg");
+}
+
+.quick-contact #quick-register {
+  background: url("https://frednyame.github.io/GhanaSoccerEducationNetwork/images/users.svg");
+}
+
+.quick-contact #quick-email, .quick-contact #quick-telephone, .quick-contact #quick-register, .quick-contact #quick-gh, .quick-contact #quick-head {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.app-info {
+  text-align: center;
+}
+
+#app-form {
+  background: -webkit-gradient(linear, right top, left bottom, from(rgba(249, 249, 249, 0.95)), to(rgba(249, 249, 249, 0.95))), url("../../images/bcgSchool.svg");
+  background-image: linear-gradient(top right, rgba(249, 249, 249, 0.95), rgba(249, 249, 249, 0.95)), url("../../images/bcgSchool.svg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+#app-form .form-wrapper {
+  padding: 90px 50px 90px 50px;
+  background: #ffffffc7;
+}
+
+//Form Error messages styling
+#formError {
+  margin-bottom: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: red;
+}
+
+//Honey Post Styling
+.hellofield{
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+  z-index: -1;
+}

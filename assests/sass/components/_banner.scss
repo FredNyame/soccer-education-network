@@ -1,0 +1,83 @@
+/*Header banner Styling*/
+#about #banner, #contact #banner, #appliacation #banner, #resource #banner, #athlete #banner, #blog #banner, #review #banner {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  margin-top: 0px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+#about, #contact {
+  min-height: 450px;
+}
+
+#appliacation, #resource, #athlete, #blog, #review {
+  min-height: 300px;
+}
+
+#appliacation #banner, #resource #banner, #athlete #banner, #blog #banner, #review #banner {
+  margin-top: 20px;
+}
+
+#appliacation #banner h1 {
+  font-size: 3rem;
+}
+
+#resource #banner h1, #athlete #banner h1, #blog #banner h1 {
+  font-size: 3.5rem;
+}
+
+#review #banner h1{
+  font-size: 2.8rem;
+}
+
+#home, #about, #contact, #appliacation, #resource, #athlete, #blog, #review {
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#banner {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 100%;
+  margin-top: 20px;
+}
+
+#banner .container .welcome {
+  display: none;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+  color: #fff;
+  letter-spacing: 0.08em;
+}
+
+#banner .container h1 {
+  color: #fff;
+  font-size: 3.1rem;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  text-shadow: 0 0.5px 2px rgba(0, 0, 0, 0.5);
+
+  @media screen and (max-width: 1025px) {
+    font-size: 2.8rem;
+  }
+}
+
+#banner .container .tagline {
+  color: #fff;
+  font-weight: 300;
+  font-size: 1.13rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  letter-spacing: -0.008em;
+}
+
+#banner .container a {
+  color: #fff;
+}

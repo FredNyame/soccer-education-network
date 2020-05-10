@@ -1,0 +1,43 @@
+@charset "UTF-8";
+@import url("https://rsms.me/inter/inter-ui.css");
+@supports (font-variation-settings: normal) {
+  html, body {
+    font-family: 'Inter UI', sans-serif;
+  }
+}
+
+/* @font-face {
+  font-family: 'Inter';
+  src: url(../fonts/Inter-UI-Regular.woff);
+  font-weight: 300 !important;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body {
+  position: relative;
+  font-family: 'Inter UI', sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+a:focus{
+  outline: none;
+}

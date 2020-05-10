@@ -1,0 +1,333 @@
+header {
+  width: 100%;
+  -webkit-transition: top 0.5s ease-in-out;
+  transition: top 0.5s ease-in-out;
+}
+
+header.top {
+  position: absolute;
+  background: transparent;
+  top: 0;
+  z-index: 10;
+}
+
+header.top .header-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px 0px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+header.top .header-container .logo {
+  width: 200px;
+  padding-top: 10px;
+}
+
+header.top .header-container .logo a {
+  display: block;
+}
+
+header.top .header-container .logo svg, header.top .header-container .logo img{
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+header.top .header-container .main_nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+header.top .header-container .main_nav .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+header.top .header-container .main_nav .menu .menu-item {
+  padding: 0 20px;
+}
+
+header.top .header-container .main_nav .menu .menu-item a {
+  font-size: 0.815rem;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+header.top .header-container .main_nav .menu .menu-item a:hover {
+  color: #ddd;
+}
+
+header.top .header-container .main_nav .menu .menu-item .btn {
+  margin: 0;
+  padding: 8px 18px;
+}
+
+header.top .header-container .main_nav .menu .menu-item-has-children {
+  position: relative;
+  display: inline-block;
+}
+
+header.top .header-container .main_nav .menu .menu-item-has-children .sub-menu {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  background: #272525;
+  min-width: 305px;
+  top: 35px;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: opacity 300ms, visibility 300ms;
+}
+
+header.top .header-container .main_nav .menu .menu-item-has-children .sub-menu a {
+  display: block;
+  padding: 10px;
+}
+
+header.top .header-container .main_nav .menu .menu-item-has-children .sub-menu a:after{
+  display: block;
+  font-size: 12px;
+  font-weight: 200;
+}
+
+header.top .header-container .main_nav .menu .menu-item-has-children .sub-menu #menu-item-24 a:after{
+  content: 'See our student-athletes who are covered';
+}
+
+header.top .header-container .main_nav .menu .menu-item-has-children .sub-menu #menu-item-21 a:after{
+  content: 'Get in touch with us';
+}
+
+header.top .header-container .main_nav .menu .menu-item-has-children .sub-menu #menu-item-25 a:after{
+  content: 'What our recruits say about us';
+}
+
+header.top .header-container .main_nav .menu .menu-item-has-children .sub-menu #menu-item-183 a:after{
+  content: 'Donate';
+}
+
+header.top .header-container .main_nav .menu .menu-item-has-children .sub-menu .menu-item {
+  padding: 0;
+}
+
+header.top .header-container .main_nav .menu .menu-item-has-children .sub-menu .menu-item:first-child {
+  margin-top: 10px;
+}
+
+header.top .header-container .main_nav .menu .menu-item-has-children .sub-menu .menu-item:last-child {
+  margin-bottom: 5px;
+}
+
+header.top .header-container .main_nav .menu .menu-item-has-children .sub-menu:before {
+  position: absolute;
+  content: '\f0d8';
+  font-family: "FontAwesome";
+  font-size: 50px;
+  top: -44px;
+  left: 10px;
+  color: #272525;
+}
+
+header.top .header-container .main_nav .menu .menu-item-has-children:hover .sub-menu {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+header.top .header-container .main_nav .menu .menu-item-has-children > a:after {
+  content: '\f0d7';
+  font-family: "FontAwesome";
+  color: #fff;
+  margin-left: 10px;
+}
+
+header.top .header-container .main_nav .menu .menu-item-has-children:hover:after {
+  color: #ddd;
+}
+
+header.top .header-container .main_nav .menu .menu-item:last-child {
+  padding: 0 0 0 20px;
+}
+
+header.top .header-container .mobile-container {
+  display: none;
+  position: relative;
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 5000;
+}
+
+header.top .header-container .mobile-container .menu {
+  width: 25px;
+  height: 2px;
+  background: #fff;
+  margin-bottom: 6px;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+header.top .header-container .change {
+  position: fixed;
+  right: 10px;
+}
+
+header.top .header-container .change #bar1 {
+  -webkit-transform: rotate(-45deg) translate(-4px, 3px);
+  transform: rotate(-45deg) translate(-4px, 3px);
+}
+
+header.top .header-container .change #bar2 {
+  opacity: 0;
+}
+
+header.top .header-container .change #bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+
+header.reveal {
+  position: fixed;
+  top: 50px;
+  -webkit-transform: translateY(-50px);
+  transform: translateY(-50px);
+  background: #1a1a1a;
+}
+
+@media screen and (max-width: 1025px) {
+  header.top .header-container {
+    max-width: 1000px;
+    padding: 10px 10px 0px 10px;
+  }
+
+  header.top .header-container .main_nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 250px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    position: fixed;
+    right: 0px;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    min-height: 100vh;
+    background: #1a1a1a;
+    -webkit-transform: translate3d(320px, 0, 0);
+    transform: translate3d(320px, 0, 0);
+    z-index: 4000;
+    overflow-y: auto;
+  }
+
+  header.top .header-container .main_nav .menu-main-nav-container {
+    height: 100%;
+  }
+
+  header.top .header-container .main_nav .menu {
+    display: block;
+    padding-top: 4rem;
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  header.top .header-container .main_nav .menu .menu-item {
+    padding: 0px;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-transform: translate3d(600px, 0, 0);
+    transform: translate3d(600px, 0, 0);
+    margin: 0;
+  }
+
+  header.top .header-container .main_nav .menu .menu-item.right-show {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  header.top .header-container .main_nav .menu .menu-item:last-child {
+    padding: 24px 80px 0px 20px;
+  }
+
+  header.top .header-container .main_nav .menu .menu-item:nth-child(1) {
+    -webkit-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+  }
+
+  header.top .header-container .main_nav .menu .menu-item:nth-child(2) {
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+  }
+
+  header.top .header-container .main_nav .menu .menu-item:nth-child(3) {
+    -webkit-transition-delay: 0.3s;
+    transition-delay: 0.3s;
+  }
+
+  header.top .header-container .main_nav .menu .menu-item:nth-child(4){
+    -webkit-transition-delay: 0.4s;
+    transition-delay: 0.4s;
+  }
+
+  header.top .header-container .main_nav .menu .menu-item:nth-child(5){
+    -webkit-transition-delay: 0.5s;
+    transition-delay: 0.5s;
+  }
+
+	header.top .header-container .main_nav .menu .menu-item:nth-child(6){
+		-webkit-transition-delay: 0.6s;
+    transition-delay: 0.6s;
+  }
+  
+	header.top .header-container .main_nav .menu .menu-item:nth-child(7){
+		-webkit-transition-delay: 0.7s;
+    transition-delay: 0.7s;
+  }
+  
+  header.top .header-container .main_nav .menu .menu-item a{
+    display: inline-block;
+    width: 100%;
+    padding: 15px 20px;
+  }
+
+  header.top .header-container .main_nav .menu .menu-item-has-children {
+    display: block;
+  }
+
+  header.top .header-container .main_nav .menu .menu-item-has-children .sub-menu {
+    position: relative;
+    top: 0px;
+  }
+
+  header.top .header-container .right-show {
+    -webkit-transform: translate3d(0px, 0, 0);
+    transform: translate3d(0px, 0, 0);
+  }
+
+  header.top .header-container .mobile-container {
+    display: block;
+  }
+}

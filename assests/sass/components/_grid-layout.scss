@@ -1,0 +1,210 @@
+.wrap-row {
+  position: relative;
+}
+
+.wrap-row .wrap-content {
+  width: 100%;
+  height: 100%;
+}
+
+.wrap-row .wrap-content .athlete {
+  display: inline-block;
+  position: relative;
+  height: 500px;
+  width: 100%;
+  margin-bottom: 50px;
+  background: #949494;
+}
+
+.wrap-row .wrap-content .athlete .content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.wrap-row .wrap-content .athlete .content .info-media {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.wrap-row .wrap-content .athlete .content .info-media img {
+  width: 100%;
+  height: 100%;
+}
+
+.wrap-row .wrap-content .athlete .content .info-person {
+  width: 100%;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: right;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 40px;
+  mix-blend-mode: luminosity;
+  text-shadow: 0 0 15px rgba(40, 39, 41, 0.2);
+}
+
+.wrap-row .wrap-content .athlete .content .info-person .info-name, .wrap-row .wrap-content .athlete .content .info-person .info-title {
+  display: block;
+}
+
+.wrap-row .wrap-content .athlete .content .info-person .info-name {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.wrap-row .wrap-content .athlete .content .info-person .info-title {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  mix-blend-mode: difference;
+}
+
+.wrap-row .wrap-content .athlete .desc {
+  width: 100%;
+  height: 100%;
+  background-color: #282729;
+  color: white;
+  left: 0;
+  opacity: 0;
+  padding: 40px 20px;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  visibility: hidden;
+  overflow-y: scroll;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.wrap-row .wrap-content .athlete .desc.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.wrap-row .wrap-content .athlete .desc span {
+  display: block;
+}
+
+.wrap-row .wrap-content .athlete .desc .info-name {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.wrap-row .wrap-content .athlete .desc .info-title, .wrap-row .wrap-content .athlete .desc .info-grad, .wrap-row .wrap-content .athlete .desc .info-home {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  mix-blend-mode: difference;
+}
+
+.wrap-row .wrap-content .athlete .desc .info-details {
+  margin-top: 20px;
+  font-weight: 200;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@media screen and (max-width: 1200px) and (min-width: 800px) {
+  .wrap-row {
+    margin-bottom: 20px;
+  }
+  .wrap-row .wrap-content .athlete {
+    height: 100%;
+    margin-right: 50px;
+    margin-bottom: 0px;
+  }
+  .wrap-row .flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .wrap-row .flex .athlete {
+    width: calc(33.333333333% - 13.333333333px);
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+  .wrap-row .flex .athlete:last-child {
+    margin-right: 0px;
+  }
+  .wrap-row .grid {
+    display: -ms-grid;
+    display: grid;
+    grid-template-areas: 'wide-tall . .' 'wide-tall . .';
+  }
+  .wrap-row .grid .athlete {
+    margin-right: 0px;
+  }
+  .wrap-row .grid .wide-tall {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 1;
+    grid-area: wide-tall;
+    height: 100%;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .left {
+    margin-bottom: 10px !important;
+  }
+  .wrap-row {
+    margin-bottom: 40px;
+  }
+  .wrap-row .wrap-content {
+    width: 100%;
+  }
+  .wrap-row .wrap-content .athlete {
+    display: block;
+    position: relative;
+    height: 357px;
+    margin-right: 40px;
+    margin-bottom: 0;
+  }
+  .wrap-row .flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+  .wrap-row .flex .athlete {
+    margin-right: 20px;
+    width: calc(40% - 33.333333333px);
+  }
+  .wrap-row .flex .athlete:last-child {
+    margin-right: 0px;
+  }
+  .wrap-row .flex .medium {
+    width: calc(33.333333333% - 23.333333333px);
+  }
+  .wrap-row .flex .small {
+    width: calc(25%);
+  }
+  .wrap-row .grid {
+    width: 100%;
+    display: -ms-grid;
+    display: grid;
+    grid-template-areas: 'wide-tall . .' 'wide-tall . .';
+    grid-gap: 40px;
+  }
+  .wrap-row .grid .athlete {
+    margin-right: 0px;
+  }
+  .wrap-row .grid .wide-tall {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 1;
+    grid-area: wide-tall;
+    height: 100%;
+  }
+}

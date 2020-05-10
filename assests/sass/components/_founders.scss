@@ -1,0 +1,101 @@
+/*Founders section Styling*/
+#founders .row-founder {
+  max-width: 1104px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 3rem 0rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+#founders .row-founder .img-founder > img{
+  width: 100%;
+}
+#founders .row-founder:nth-child(even) .img-founder{
+  order: 2;
+}
+#founders .row-founder:nth-child(even) .p-founder{
+  order: 1;
+  padding: 0rem 3.2rem 0rem 0rem;
+}
+
+#founders .row-founder .img-founder {
+  max-width: 50%;
+  -ms-flex-preferred-size: 50%;
+  flex-basis: 50%;
+  height: 530px;
+  background: #fff;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow: hidden;
+}
+
+#founders .row-founder .p-founder {
+  max-width: 50%;
+  -ms-flex-preferred-size: 50%;
+  flex-basis: 50%;
+  letter-spacing: -0.008em;
+  padding: 0rem 3.2rem 0rem 3.2rem;
+}
+
+#founders .row-founder .p-founder .team-name {
+  font-size: 24px;
+  color: #333;
+}
+
+#founders .row-founder .p-founder .team-title {
+  font-size: .9rem;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+#founders .row-founder .p-founder h4 {
+  margin-bottom: 1rem;
+}
+
+#founders .row-founder .p-founder p {
+  font-size: 1rem;
+  color: #575757;
+}
+
+.mission-row{
+  padding:  100px 0px;
+}
+
+#missionVision {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#story, #mission, #our-vision{
+    padding: 0px;
+}
+
+#missionVision .top_heading{
+  font-size: 2rem;
+}
+
+#missionVision .mission_p{
+  text-align: center;
+  padding: 0px 10px;
+}
+
+#missionVision #mission {
+  width: 100%;
+}
+
+#missionVision #our-vision {
+  width: 100%;
+  background: #f9f9f9;
+}

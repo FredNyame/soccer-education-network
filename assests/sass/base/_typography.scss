@@ -1,0 +1,50 @@
+p{
+  color: #575757;
+}
+
+.strong {
+  font-weight: 600;
+}
+
+.top_heading, .sub_heading {
+  color: #120404;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.top_heading {
+  font-size: 2.65rem;
+  margin-bottom: 3.75rem;
+  letter-spacing: -0.017em;
+}
+
+#story .text-mt2{
+  margin-top: 0px;
+}
+
+.text-mt2 {
+  margin: 2rem 0 1rem 0;
+}
+
+#title_width{
+  width: 40%;
+  margin: 0 auto 2rem auto;
+
+  @media screen and (max-width: 1025px) {
+    width: 60%;
+  }
+}
+
+.sub_heading {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.011em;
+}
+
+.subtagline {
+  max-width: 646px;
+  width: 100%;
+  font-size: 18px;
+  margin-bottom: 80px;
+  letter-spacing: -0.011em;
+}

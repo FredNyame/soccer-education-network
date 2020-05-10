@@ -1,0 +1,56 @@
+/*Frequently Asked questions Styling*/
+.faq-container {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 100px;
+}
+
+.faq-container .faq-bck {
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  color: #575757;
+}
+
+.faq-container .faq-bck .faq-show {
+  color: #333333 !important;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  font-size: 20px;
+  letter-spacing: -0.011em;
+  font-weight: 500;
+  padding: 1.4rem 1rem 1.4rem 0;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.faq-container .faq-bck .faq-show:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 10px;
+}
+
+.faq-container .faq-bck .faq-show.active:after {
+  content: "\2212";
+}
+
+.faq-container .faq-bck .faq-words {
+  color:  #575757 !important;
+  font-size: 18px;
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.faq-container > .faq-bck:last-child {
+  border-bottom: 0px;
+}

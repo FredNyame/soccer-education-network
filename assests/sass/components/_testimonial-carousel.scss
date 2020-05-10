@@ -1,0 +1,130 @@
+/*Section for the testimonial*/
+#test-row {
+  position: relative;
+  z-index: 1;
+  /*Svg background for the testimonial sction*/
+}
+
+#test-row .bck-test {
+  width: 300px;
+  position: absolute;
+  left: -53px;
+  top: -80px;
+  z-index: -1;
+}
+
+/*Testimonials styling for the pictures and words*/
+.wrapper {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.wrapper .slide-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.wrapper .slide-wrap .words {
+  display: none;
+  position: relative;
+  max-width: 609px;
+  width: 100%;
+  height: auto;
+  min-height: 191px;
+  margin-bottom: 5rem;
+}
+
+.wrapper .slide-wrap .words .words-img {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  bottom: -72px;
+  left: 14px;
+  background: #333;
+  overflow: hidden;
+}
+
+.wrapper .slide-wrap .words .words-p {
+  width: 100%;
+  background: #fff;
+  padding: 1.5rem;
+}
+
+.wrapper .slide-wrap .words .words-p .word {
+  position: relative;
+  color: #575757;
+  font-size: 16px;
+  padding: 2rem;
+  letter-spacing: -0.005em;
+  z-index: 1;
+}
+
+.word .test-hide{
+  display: none;
+  opacity: 0;
+}
+
+.wrapper .slide-wrap .words .words-p .word:before {
+  content: "“";
+  color: rgba(240, 29, 29, 0.2);
+  font-family: georgia, serif;
+  font-size: 12em;
+  position: absolute;
+  top: -70px;
+  left: -3px;
+  z-index: -1;
+}
+
+.wrapper .slide-wrap .words .words-p .person {
+  position: absolute;
+  bottom: -40px;
+  left: 140px;
+  color: #120404;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.wrapper .prev, .wrapper .next {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+  color: #333;
+  padding: 0 1rem;
+  border-radius: 50%;
+  opacity: 0.7;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 1000;
+}
+
+.wrapper .next {
+  right: 0rem;
+}
+
+.wrapper .prev:hover, .wrapper .next:hover {
+  opacity: 1;
+}
+
+.wrapper .fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}

@@ -1,0 +1,101 @@
+/*Testimonial Page*/
+.review-row{
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px;
+  width: 100%;
+  margin: 60px auto;
+  padding: 20px 50px;
+}
+.review-row .test-hide{
+  display: inline;
+  opacity: 1;
+}
+.review-row .dots{
+  display: none;
+}
+.review-row .review-img{
+  flex: 0 0 45%;
+  height: 420px;
+  border-radius: 3px;
+  order: 1;
+  overflow: hidden;
+}
+.review-img > img{
+  object-position: top center !important;
+}
+
+.review-row .review-word{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 0 0 50%;
+  line-height: 1.8;
+  order: 2;
+}
+.review-row .review-word .word{
+  position: relative;
+  quotes: "“"  "„";
+}
+.review-row .review-word .word::before, .review-row .review-word .word::after{
+  position: absolute;
+  font-family: georgia, serif;
+  font-size: 8em;
+  color: rgba(240, 29, 29, 0.2);
+  z-index: -1;
+}
+.review-row .review-word .word::before{
+  content: open-quote;
+  top: -73px;
+  left: -24px;
+}
+.review-row .review-word .word::after{
+  content: close-quote;
+  bottom: -66px;
+  right: 6px;
+}
+.review-row .review-word .person{
+  font-weight: 600;
+  margin-top: 20px;
+}
+.review-row:nth-child(even) .review-word{
+  order:1;
+}
+.review-row:nth-child(even) .review-img{
+  order: 2;
+}
+
+/* #img01 {
+  background: url("https://images.unsplash.com/photo-1546945586-a086b36a264f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#img02 {
+  background: url("https://images.unsplash.com/photo-1546942113-a6c43b63104a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#img03 {
+  background: url("https://images.unsplash.com/photo-1546962390-a1e498bd3e58?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#img04 {
+  background: url("https://images.unsplash.com/photo-1546968350-3b364d5ad668?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1078&q=80");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#img05 {
+  background: url("https://images.unsplash.com/photo-1546920930-cfbd84a17b4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1134&q=80");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+} */

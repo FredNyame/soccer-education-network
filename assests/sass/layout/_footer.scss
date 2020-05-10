@@ -1,0 +1,165 @@
+footer {
+  width: 100%;
+  background: #000000;
+  color: #fff !important;
+}
+
+footer #f-row {
+  padding: 50px 0;
+  background-color: #1a1a1a;
+  color: #f4f4f4;
+}
+
+footer.row {
+  padding-bottom: 60px;
+}
+
+footer h2.top_heading {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+footer .container .social {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(80px, 1fr))[auto-fit];
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  grid-gap: 20px;
+  max-width: 480px;
+  width: 100%;
+  height: 50px;
+  margin: 0 auto;
+}
+
+footer .container .social .ind-social-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+footer .container .social .ind-social-logo a {
+  width: 30px;
+  height: 30px;
+}
+
+footer .container .social .ind-social-logo a svg {
+  width: 100%;
+  height: 100%;
+}
+
+footer .container .social .ind-social-logo a:hover .a {
+  fill: #F01D1D;
+}
+
+footer .container .line {
+  width: 100%;
+  margin: 0 auto;
+  height: 1px;
+  border: 0;
+  background: #252931;
+}
+footer #l-row{
+  padding: 4rem 0 3rem 0;
+}
+footer .container .main-footer {
+  width: 100%;
+  margin: 0rem auto 0rem auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+footer .container .main-footer .logo {
+  max-width: 200px;
+  flex-basis: 200px;
+  width: 100%;
+}
+footer .container .main-footer .logo img{
+  width: 100%;
+}
+
+footer .container .main-footer .subform {
+  -ms-flex-preferred-size: 50%;
+  flex-basis: 50%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+footer .container .main-footer .subform #p-subform {
+  display: block;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+
+footer .container .main-footer .subform form {
+  width: 100%;
+}
+
+footer .container .main-footer .subform form input {
+  border: 0;
+  border-radius: 2px;
+}
+
+footer .container .main-footer .subform form input[type="email"] {
+  width: 100%;
+  font-size: 16px;
+  padding: 1rem 0 2px 0;
+  color: #fff;
+  background: transparent;
+  border-bottom: 1px solid #ddd;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  margin-bottom: 25px;
+  outline: none;
+}
+
+footer .container .main-footer .subform form input[type="email"]:hover, footer .container .main-footer .subform form input[type="email"]:focus {
+  border-bottom: 1px solid #fff;
+}
+
+footer .container .main-footer .subform form button[type="submit"] {
+  display: block;
+  margin: 0 auto;
+  font-size: 1.125rem;
+  padding: 1rem 1.25remrem;
+  cursor: pointer;
+}
+
+footer .container .main-footer .quick-links {
+  -ms-flex-preferred-size: 15%;
+      flex-basis: 15%;
+}
+
+footer .container .main-footer .quick-links #p-quick-link-header {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+footer .container .main-footer .quick-links li {
+  margin-bottom: 15px;
+}
+
+footer .container .main-footer .quick-links a {
+  color: #fff;
+  font-weight: 300;
+}
+
+footer .container .copyright {
+  text-align: center;
+  font-weight: 300;
+  padding-top: 1rem;
+  color: #fff;
+}

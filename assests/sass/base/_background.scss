@@ -7,7 +7,7 @@
   width: 100%;
   min-height: 473px;
   background-color: #F45B69;
-  background-image: linear-gradient(rgba(249, 249, 249, 0.95), rgba(249, 249, 249, 0.95)), url("../../images/bcgSchool.svg");
+  background: linear-gradient(rgba(249, 249, 249, 0.95), rgba(249, 249, 249, 0.95)), url("../../images/bcgSchool.svg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -18,38 +18,38 @@
   width: 100%;
   height: auto;
   min-height: 100vh;
-  background: linear-gradient(to top right, #000000, #353531);
+  background: linear-gradient(to left, #000000, #353531);
   overflow: hidden;
 }
 
 #home {
-  background-image: linear-gradient(to top right, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/home.png");
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/home.png");
 }
 
 #about {
-  background: linear-gradient(to top right, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/about.jpg");
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/about.jpg");
 }
 
 #contact {
-  background: linear-gradient(to top right, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/contact.jpg");
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/contact.jpg");
 }
 
 #appliacation {
-  background: linear-gradient(to top right, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/appBanner.png");
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/appBanner.png");
 }
 
 #resource{
-  background: linear-gradient(to top right, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/resourcebanner.png");
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/resourcebanner.png");
 }
 
 #review {
-  background: linear-gradient(to top right, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/resourceBck.png");
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/resourceBck.png");
 }
 
 #athlete {
-  background: linear-gradient(to top right, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/bckAthlete.png");
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/bckAthlete.png");
 }
 
 #blog {
-  background-image: linear-gradient(to top right, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/bckAthlete.png");
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/bckAthlete.png");
 }

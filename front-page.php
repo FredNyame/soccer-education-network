@@ -11,7 +11,7 @@
  *
  * @package gsen
  */
-$id = 'home';
+
 get_header();
 ?>
 <!--banner-->

@@ -8,7 +8,8 @@
  *
  * @package gsen
  */
-
+global $post;
+$page_slug = $post->post_name;
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -22,7 +23,7 @@
 
 <body <?php body_class(); ?>>
 <!--Nav and Showcase-->
-<div class="showcase" id="<?php echo "$id";?>">
+<div class="showcase" id="<?php echo is_home() ? 'home' : $page_slug;?>">
 
 <!--Header-->
 	<header id="header" class="top">

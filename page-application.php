@@ -11,7 +11,7 @@
  *
  * @package gsen
  */
-$id = 'appliacation';
+
 get_header();
 ?>
 <!--banner-->

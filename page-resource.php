@@ -11,7 +11,7 @@
  *
  * @package gsen
  */
-$id = 'resource';
+
 get_header();
 ?>
 

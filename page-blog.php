@@ -11,7 +11,7 @@
  *
  * @package gsen
  */
-$id = 'blog';
+
 get_header();
 ?>
 

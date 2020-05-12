@@ -11,7 +11,7 @@
  *
  * @package gsen
  */
-$id = 'athlete';
+
 get_header();
 ?>
 <!--banner-->

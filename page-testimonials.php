@@ -11,7 +11,7 @@
  *
  * @package gsen
  */
-$id = 'review';
+
 get_header();
 ?>
 

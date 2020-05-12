@@ -11,7 +11,7 @@
  *
  * @package gsen
  */
-$id = 'contact';
+
 get_header();
 ?>
 

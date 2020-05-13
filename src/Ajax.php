@@ -296,8 +296,8 @@ class Ajax
     //Email headers
     $headers ="MIME-Version: 1.0 \r\n";
     $headers .="Content-Type:text/html; charset=UTF-8 \r\n";
-    $headers .="From: <nyamefred0@gmail.com> \r\n";
-    $toEmail = "do46867@gmail.com";
+    $headers .="From: <do46867@gmail.com> \r\n";
+    $toEmail = "support@ghsen.org";
     $subject = "Contact Form Submission from $firstName $lastName";
     $emailBody = "<h2>Contact Request</h2>
                   <h4>The name of the sender is $firstName $lastName </h4>

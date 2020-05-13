@@ -294,9 +294,9 @@ class Ajax
     $response = [];
 
     //Email headers
-    $headers ="MIME-Version: 1.0"."\r\n";
-    $headers .="Content-Type:text/html;charset=UTF-8"."\r\n";
-    $headers .="From: <do46867@gmail.com> \r\n";
+    $headers ="MIME-Version: 1.0 \r\n";
+    $headers .="Content-Type:text/html; charset=UTF-8 \r\n";
+    $headers .="From: <nyamefred0@gmail.com> \r\n";
     $toEmail = "do46867@gmail.com";
     $subject = "Contact Form Submission from $firstName $lastName";
     $emailBody = "<h2>Contact Request</h2>
@@ -307,7 +307,7 @@ class Ajax
     ";
 
     //check if there no error message
-    if(wp_mail($toEmail, $subject, $emailBody, $headers)){
+    if(mail($toEmail, $subject, $emailBody, $headers)){
       $response['success'] = true;
     } else{
       $response['success'] = false;

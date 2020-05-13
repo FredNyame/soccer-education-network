@@ -60,7 +60,6 @@ class Ajax
     $mailSent = $this->sendEmail($form_data['firstName'], $form_data['lastName'], $form_data['email'], $form_data['message'], $form_data['person']);
 
     if(!$mailSent['success']) {
-      $mailSent['errorMessage'] = 'Error sending message.';
       $response = $mailSent;
 
       echo json_encode($response);
@@ -297,9 +296,8 @@ class Ajax
     //Email headers
     $headers ="MIME-Version: 1.0"."\r\n";
     $headers .="Content-Type:text/html;charset=UTF-8"."\r\n";
-    //Additional headers
-    $headers .="From: ".$firstName. " ".$lastName. "<".$email.">"."\r\n";
-    $toEmail = $email;
+    $headers .="From: <do46867@gmail.com> \r\n";
+    $toEmail = "do46867@gmail.com";
     $subject = "Contact Form Submission from $firstName $lastName";
     $emailBody = "<h2>Contact Request</h2>
                   <h4>The name of the sender is $firstName $lastName </h4>
@@ -313,7 +311,7 @@ class Ajax
       $response['success'] = true;
     } else{
       $response['success'] = false;
-      $response['errorInputs'] = "Error sending message. Please try again later";
+      $response['errorMessage'] = "Error sending message. Please try again later";
     }
     
     return $response;

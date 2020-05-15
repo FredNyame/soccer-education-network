@@ -45,7 +45,6 @@ class UI{
 
       // Otherwise, insert it after the field
       if (!label) {
-        /* formField.parentNode.insertBefore( message, formField.nextElementSibling); */
         formField.parentNode.appendChild( message);
       }
      }
@@ -187,9 +186,7 @@ let checkVal = function(field){
 
 //////////////////////////////////////////////////////////////////
 //Event: Handles when input has been unfocus
-const formElm = document.querySelector('#contact-form')  || document.querySelector('#application-form');
-
-//const appFormElm = document.querySelector('#application-form');
+const formElm = document.querySelector('#application-form');
 
 if(formElm != null && formElm != undefined) {
   formElm.addEventListener('blur', inputblur, true);
@@ -197,7 +194,8 @@ if(formElm != null && formElm != undefined) {
   
   //Stop Native Broswer validation behavoir
   formElm.setAttribute('novalidate', true);
-  //appFormElm.setAttribute('novalidate', true);
+
+  formElm.addEventListener('submit', appFormSubmission);
 }
 
 //Funtion for Blur
@@ -216,367 +214,96 @@ function inputblur(e){
  UI.removeError(e.target);
 }
 
+//Handle form submission
+function appFormSubmission(e) {
+  e.preventDefault();
 
-////////////////////////////////////////////////////////////////////
-//Event: Handles when form submit
-if(formElm != null && formElm != undefined) {
-  formElm.addEventListener('submit', (e) => {
-    //Prevent form from actual submitting
-    e.preventDefault();
-    let formUrl = e.target.dataset.url;
-  
-    // Get all of the form elements
-    let fields = e.target.elements;
-  
-    // Validate each field
-    // Store the first field with an error to a variable so we can bring it into focus later
-     let error, hasErrors;
-  
-     //looping through the form elements
-     for (var i = 0; i < fields.length; i++) {
-        error = checkVal(fields[i]);
-  
-        //if there is error show it
-        if (error) {
-            UI.showError(fields[i], error);
-  
-            if ( !hasErrors ) {
-              hasErrors = fields[i];
-            }
-        }
-     }
-  
-    // If there are errors, don't submit form but focus on first element with error
-     if (hasErrors) {
-         hasErrors.focus();
-         return;
-     }
-  
-    // Otherwise, let the form submit normally if there are no errors
-    //Get the input values
-    let person;
-    let firstName = document.getElementById('firstName').value;
-    let lastName = document.getElementById('lastName').value;
-    let emailValue = document.getElementById('email').value;
-    let textArea = document.getElementById('message').value;
-    let selectRadio = document.querySelectorAll('.person');
-  
-    //Check which one is seleted and get it value
-    selectRadio.forEach((who) => {
-      if(who.checked === true){
-        person = who.value;
-      }
-    });
-  
-    //Pass those values into the contact class to create a contact object
-    if(formElm === document.querySelector('#contact-form')){
-      //Rewrite this It should be the form element.find the element in that form
-      let action = document.getElementById('hidden').value;
-  
-      //makeRequest(formUrl, formElm, action, firstName, lastName, emailValue, textArea, person);
-  
-      //Create xhr objet
-      let xhr = new XMLHttpRequest();
-  
-      //prepare the request
-      xhr.open('POST', formUrl , true);
-  
-      //set the content header
-      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-  
-      //handle the response
-      xhr.onload = function (){
-        if(this.status >= 200 && this.status < 400){
-        let userResponse = JSON.parse(this.responseText);
-        console.log(userResponse);
-  
-        let fields;
-        if(formElm === document.querySelector('#contact-form')){
-          fields = document.querySelector('#contact-form').elements
-        }
-  
-        if(formElm === document.querySelector('#application-form')){
-          fields = document.querySelector('#application-form').elements;
-        }
-  
-        //when there is an error
-        if(userResponse.error){
-          for(let i = 0; i < fields.length; i++){
-            if(fields[i].className === 'person'){
-              //show error messages
-              UI.showError(fields[i], userResponse.errorMessages.personError);
-            }
-  
-            if(fields[i].id === 'firstName'){
-              //show error messages
-              UI.showError(fields[i], userResponse.errorMessages.firstError);
-            }
-  
-            if(fields[i].id === 'lastName'){
-              //show error messages
-              UI.showError(fields[i], userResponse.errorMessages.lastError);
-            }
-  
-            if(fields[i].id === 'email'){
-              //show error messages
-              UI.showError(fields[i], userResponse.errorMessages.emailError);
-            }
-  
-            if(fields[i].id === 'message'){
-              //show error messages
-              UI.showError(fields[i], userResponse.errorMessages.messageError);
-            }
-          }
-        } else{
-          //when there is no error
-           //Remove error
-           for(let i = 0; i < fields.length; i++){
-             UI.removeError(fields[i]);
-          }
-          //Show the message on the screen
-          document.getElementById('success-msg').innerHTML = 'Message sent, thank you for contacting us';
-          console.log('no error');
-        }
-      } else{
-        //connection error
-      }
-      };
-  
-      let params = new URLSearchParams(new FormData(formElm));
-      //send the request
-      xhr.send(params);
-    }
-  
-    //Pass those values into the application class to create a application object
-    if(formElm === document.querySelector('#application-form')){
-      let action = document.getElementById('apphidden').value;
-      let age = document.getElementById('age').value;
-      let school = document.getElementById('school').value;
-      let location = document.getElementById('location').value;
-  
-      //Make Ajax request
-      makeRequest(formUrl, formElm, action, age, school, location);
-  
-      //console.log(appForm);
-    }
-  
-    // You could also bolt in an Ajax form submit process here
-    //Reset the form when submitted
-    UI.clearFields();
-  });
+  // Get all of the form elements
+  let fields = e.target.elements;
 
-  formElm.addEventListener('submit', (e) => {
-    //Prevent form from actual submitting
-    e.preventDefault();
-    let formUrl = e.target.dataset.url;
+  // Validate each field
+  // Store the first field with an error to a variable so we can bring it into focus later
+  let error, hasErrors;
   
-    // Get all of the form elements
-    let fields = e.target.elements;
-  
-    // Validate each field
-    // Store the first field with an error to a variable so we can bring it into focus later
-     let error, hasErrors;
-  
-     //looping through the form elements
-     for (var i = 0; i < fields.length; i++) {
-        error = checkVal(fields[i]);
-  
-        //if there is error show it
-        if (error) {
-            UI.showError(fields[i], error);
-  
-            if ( !hasErrors ) {
-              hasErrors = fields[i];
-            }
-        }
-     }
-  
-    // If there are errors, don't submit form but focus on first element with error
-     if (hasErrors) {
-         hasErrors.focus();
-         return;
-     }
-  
-    // Otherwise, let the form submit normally if there are no errors
-    //Get the input values
-    let person;
-    let firstName = document.getElementById('firstName').value;
-    let lastName = document.getElementById('lastName').value;
-    let emailValue = document.getElementById('email').value;
-    let textArea = document.getElementById('message').value;
-    let selectRadio = document.querySelectorAll('.person');
-  
-    //Check which one is seleted and get it value
-    selectRadio.forEach((who) => {
-      if(who.checked === true){
-        person = who.value;
+  //looping through the form elements
+  for (var i = 0; i < fields.length; i++) {
+    error = checkVal(fields[i]);
+
+    //if there is error show it
+    if (error) {
+      UI.showError(fields[i], error);
+
+      if ( !hasErrors ) {
+        hasErrors = fields[i];
       }
-    });
-  
-    //Pass those values into the contact class to create a contact object
-    if(formElm === document.querySelector('#contact-form')){
-      //Rewrite this It should be the form element.find the element in that form
-      let action = document.getElementById('hidden').value;
-  
-      //Create xhr objet
-      let xhr = new XMLHttpRequest();
-  
-      //prepare the request
-      xhr.open('POST',formUrl , true);
-  
-      //set the content header
-      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-  
-      //handle the response
-      xhr.onload = function (){
-        if(this.status >= 200 && this.status < 400){
-        let userResponse = JSON.parse(this.responseText);
-        console.log(userResponse);
-  
-        let fields;
-        if(formElm === document.querySelector('#contact-form')){
-          fields = document.querySelector('#contact-form').elements
-        }
-  
-        if(formElm === document.querySelector('#application-form')){
-          fields = document.querySelector('#application-form').elements;
-        }
-  
-        //when there is an error
-        if(userResponse.error){
-          for(let i = 0; i < fields.length; i++){
-            if(fields[i].className === 'person'){
-              //show error messages
-              UI.showError(fields[i], userResponse.errorMessages.personError);
-            }
-  
-            if(fields[i].id === 'firstName'){
-              //show error messages
-              UI.showError(fields[i], userResponse.errorMessages.firstError);
-            }
-  
-            if(fields[i].id === 'lastName'){
-              //show error messages
-              UI.showError(fields[i], userResponse.errorMessages.lastError);
-            }
-  
-            if(fields[i].id === 'email'){
-              //show error messages
-              UI.showError(fields[i], userResponse.errorMessages.emailError);
-            }
-  
-            if(fields[i].id === 'message'){
-              //show error messages
-              UI.showError(fields[i], userResponse.errorMessages.messageError);
-            }
-          }
-        } else{
-          //when there is no error
-           //Remove error
-           for(let i = 0; i < fields.length; i++){
-             UI.removeError(fields[i]);
-          }
-          //Show the message on the screen
-          document.getElementById('success-msg').innerHTML = 'Message Sent, Thank you for contacting us';
-          console.log('no error');
-        }
-      } else{
-        //connection error
-      }
-      };
-  
-      let params = new URLSearchParams(new FormData(formElm));
-      //send the request
-      xhr.send(params);
     }
-  
-    //Pass those values into the application class to create a application object
-    if(formElm === document.querySelector('#application-form')){
-      let action = document.getElementById('apphidden').value;
-      let age = document.getElementById('age').value;
-      let school = document.getElementById('school').value;
-      let location = document.getElementById('location').value;
-  
-      //Make Ajax request
-      makeRequest(formUrl, formElm, action, age, school, location);
-    }
-  
-    // You could also bolt in an Ajax form submit process here
-    //Reset the form when submitted
-    UI.clearFields();
-  });
+  }
+
+  // If there are errors, don't submit form but focus on first element with error
+  if (hasErrors) {
+    hasErrors.focus();
+    return;
+  }
+
+  //Get Form data
+  let formData = new FormData(formElm);
+
+  //if spam field is filled return
+  if(formData['gsen_hp']) {
+    return;
+  }
+
+  //Make Ajax Request
+  makeRequest(formData);
 }
 
 //Function to handle the Ajax Request / Response
-function makeRequest(formUrl, formElm, action, age, school, location) {
-    //Create xhr objet
-    let xhr = new XMLHttpRequest();
-
-    //prepare the request
-    xhr.open('POST', formUrl, true);
-
-    //set the content header
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-    //handle the response
-    xhr.onload = function (){
-      if(this.status >= 200 && this.status < 400){
-        let userResponse = JSON.parse(this.responseText);
-        let fields;
-
-        if(formElm === document.querySelector('#contact-form')){
-          fields = document.querySelector('#contact-form').elements
-        }
-
-        if(formElm === document.querySelector('#application-form')){
-          fields = document.querySelector('#application-form').elements;
-        }
-  
-        //when there is an error
-        if(userResponse.error){
-          for(let i = 0; i < fields.length; i++){
-            if(fields[i].className === 'person'){
-              //show error messages
-              UI.showError(fields[i], userResponse.errorMessages.personError);
-            }
-            if(fields[i].id === 'firstName'){
-              //show error messages
-              UI.showError(fields[i], userResponse.errorMessages.firstError);
-            }
-            if(fields[i].id === 'lastName'){
-              //show error messages
-              UI.showError(fields[i], userResponse.errorMessages.lastError);
-            }
-            if(fields[i].id === 'email'){
-              //show error messages
-              UI.showError(fields[i], userResponse.errorMessages.emailError);
-            }
-            if(fields[i].id === 'message'){
-              //show error messages
-              UI.showError(fields[i], userResponse.errorMessages.messageError);
-            }
-          }
-        }
-        else{
-          //when there is no error
-            //Remove error
-            for(let i = 0; i < fields.length; i++){
-              UI.removeError(fields[i]);
-          }
-          //console.log('no error');
-        }
-      }
-      else{
-        //// If fail
-        console.log(this.response);
-      }
-        //console.log(userResponse);
-      };
-  
-      let params =`action=${action}&firstName=${firstName}&lastName=${lastName}&email=${emailValue}&message=${textArea}&age=${age}&school=${school}&location=${location}`;
-  
-      console.log(params);
-  
-      //send the request
-      xhr.send(params);
+function makeRequest(formData) {
+  //Make Ajax Request
+  fetch(form_info.form_url, {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => {
+    return response.json();
+  })
+  .then(data => {
+    console.log(data);
+    if(data.success == false) {
+      formElm.querySelector('#formError').innerHTML = data.message;
+      removeErrorMessages();
+      data.input_errors.forEach(element => {
+        let inputField = formElm.querySelector('#'+element.field);
+        UI.showError(inputField, element.message);
+      });
+    } else {
+      formElm.querySelector('#formError').innerHTML = '';
+      formElm.querySelector('#success-msg').innerHTML = data.message;
+      removeErrorMessages();
+      formElm.reset();
+    }
+  })
+  .catch((error) => {
+    console.log(error);
+  })
 }  
+
+  //Remove error message
+  function removeErrorMessages() {
+    //Get all error message and hide them
+    let errorMessages = formElm.querySelectorAll('.error-message');
+    let inputFields = formElm.querySelectorAll('.inputField');
+
+    if(inputFields) {
+      inputFields.forEach(field => {
+        field.classList.remove('error')
+      })
+    }
+
+    if(errorMessages) {
+        errorMessages.forEach(element => {
+          element.innerHTML = '';
+          element.style.display = 'none';
+        })
+    }
+  }

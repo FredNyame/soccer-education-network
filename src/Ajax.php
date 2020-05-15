@@ -24,6 +24,7 @@ class Ajax
   {
     add_action('wp_ajax_nopriv_gsen_save_form',[$this, 'gsen_save_form']);
     add_action('wp_ajax_gsen_save_form', [$this, 'gsen_save_form']);
+
     add_action('wp_ajax_nopriv_gsen_save_form_app', [$this, 'gsen_save_form_app']);
     add_action('wp_ajax_gsen_save_form_app', [$this, 'gsen_save_form_app']);
   }
@@ -57,7 +58,18 @@ class Ajax
     }
 
     //Send the Email
-    $mailSent = $this->sendEmail($form_data['firstName'], $form_data['lastName'], $form_data['email'], $form_data['message'], $form_data['person']);
+    $emailBody = "
+    <html>
+    <body>
+    <h2>The name of the sender is ". $form_data['firstName'] . " ". $form_data['lastName']." </h2>
+    <h2><strong>Person sending the contact is a " .$form_data['person']. "</strong</h2>
+    <h2>Their email address is ".$form_data['email'] ."</h2>
+    <h2><strong>Enquiry message: </strong>".$form_data['message']."</h2>
+    </body>
+    </html>
+    ";
+
+    $mailSent = $this->sendEmail($form_data['firstName'], $form_data['lastName'], $form_data['email'], $emailBody, 'contact');
 
     if(!$mailSent['success']) {
       $response = $mailSent;
@@ -69,7 +81,7 @@ class Ajax
     $mailSent['successMessage'] = 'Thank you for contacting us, someone will respond to your message and get back to you!';
     $response = $mailSent;
     echo json_encode($response);
-    die();
+    exit();
 
   }
 
@@ -80,93 +92,175 @@ class Ajax
   */
   public function gsen_save_form_app()
   {
-    $error = false;
-    $errorMessage = [];
-    $firstErr  = $lastErr = $emailErr = $messageErr = $personErr = '';
+    $response = [];
 
-    //collect all form data fro JS file
-    $firstName = wp_strip_all_tags($_POST['firstName']);
-    //check if the data is empty
+    //Honeypot check
+    $this->check_spam_field($_POST['gsen_hp']);
+
+    //Check nonce
+    if(!wp_verify_nonce($_POST['gsf'], 'gsen_save_form')) {
+      exit();
+    }
+
     if(empty($_POST['firstName'])){
-      $error = true;
-      $firstErr = "First name filed is required";
+      $response['input_errors'][] = [
+        'field' => 'firstName',
+        'message' => 'First name filed is required'
+      ];
     } else{
       //when there is data
-      $firstName = filter_var($_POST['firstName'], FILTER_SANITIZE_STRING);
+      $firstName = $this->checkInput($_POST['firstName']);
+      $firstName = filter_var($firstName, FILTER_SANITIZE_STRING);
+
       //check for it length
       if(strlen($firstName) < 4){
-        $error = true;
-        $firstErr = "Name field is too short";
+        $response['input_errors'][] = [
+          'field' => 'firstName',
+          'message' => 'First name field is too short'
+        ];
       }
     }
 
-    $lastName = wp_strip_all_tags($_POST['lastName']);
-    //check if the data is empty
     if(empty($_POST['lastName'])){
-      $error = true;
-      $lastErr = "Last name filed is required";
+      $response['input_errors'][] = [
+        'field' => 'lastName',
+        'message' => 'Last name filed is required'
+      ];
     } else{
       //when there is data
-      $last = filter_var($_POST['lastName'], FILTER_SANITIZE_STRING);
+      $lastName = $this->checkInput($_POST['lastName']);
+      $lastName = filter_var($lastName, FILTER_SANITIZE_STRING);
+
       //check for it length
       if(strlen($lastName) < 4){
-        $error = true;
-        $lastErr = "Last name field is too short";
+        $response['input_errors'][] = [
+          'field' => 'lastName',
+          'message' => 'Last name field is too short'
+        ];
       }
     }
 
-    $email = wp_strip_all_tags($_POST['email']);
-    //check if the data is empty
     if(empty($_POST['email'])){
-      $error = true;
-      $emailErr = "Email filed is required";
+      $response['input_errors'][] = [
+        'field' => 'email',
+        'message' => 'Email filed is required'
+      ];
     } else{
       //when there is data
-      $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+      $email = $this->checkInput($_POST['email']);
+      $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+
       //check for if email is valid
       if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        $error = true;
-        $emailErr = "Invalid Email";
+        $response['input_errors'][] = [
+          'field' => 'email',
+          'message' => 'Email is not valid'
+        ];
       }
     }
 
-    $message = wp_strip_all_tags($_POST['message']);
-    //check if the data is empty
-    if(empty($_POST['message'])){
-      $error = true;
-      $messageErr = "Messages filed is required";
+    if(empty($_POST['age'])){
+      $response['input_errors'][] = [
+        'field' => 'age',
+        'message' => 'Age filed is required'
+      ];
     } else{
       //when there is data
-      $message = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
+      $age = $this->checkInput($_POST['age']);
+      $age = (int) filter_var($age, FILTER_SANITIZE_NUMBER_INT);
+    }
+
+    if(empty($_POST['school'])){
+      $response['input_errors'][] = [
+        'field' => 'school',
+        'message' => 'School filed is required'
+      ];
+    } else{
+      //when there is data
+      $school = $this->checkInput($_POST['school']);
+      $school = filter_var($school, FILTER_SANITIZE_STRING);
+
       //check for if email is valid
-      if(strlen($message) < 5){
-        $error = true;
-        $messageErr = "Message field is too short";
+      if(strlen($school) < 4){
+        $response['input_errors'][] = [
+          'field' => 'school',
+          'message' => 'School field is too short'
+        ];
       }
     }
 
-    $age = wp_strip_all_tags($_POST['age']);
-    $school = wp_strip_all_tags($_POST['school']);
-    $location = wp_strip_all_tags($_POST['location']);
+    if(empty($_POST['location'])){
+      $response['input_errors'][] = [
+        'field' => 'location',
+        'message' => 'Location filed is required'
+      ];
+    } else{
+      //when there is data
+      $location = $this->checkInput($_POST['location']);
+      $location = filter_var($location, FILTER_SANITIZE_STRING);
 
-    $errorMessage = [
-      'firstError' => $firstErr,
-      'lastError' => $lastErr,
-      'emailError' => $emailErr,
-      'messageError' => $messageErr
-    ];
+      //check for if email is valid
+      if(strlen($location) < 4){
+        $response['input_errors'][] = [
+          'field' => 'location',
+          'message' => 'Location field is too short'
+        ];
+      }
+    }
 
-    //Output to JS
-    $sendResponse = [
-      'error' => $error,
-      'errorMessages' => $errorMessage
-    ];
-    echo json_encode($sendResponse);
+    if(empty($_POST['message'])){
+      $response['input_errors'][] = [
+        'field' => 'message',
+        'message' => 'Messages filed is required'
+      ];
+    } else{
+      //when there is data
+      $message = $this->checkInput($_POST['message']);
+      $message = filter_var($message, FILTER_SANITIZE_STRING);
 
-    //echo $firstName . ',' . $lastName . ',' . $email . ',' . $message . ',' . $age . ',' . $school . ',' . $location;
-    //wp_insert_post();
+      //check for if email is valid
+      if(strlen($message) < 5){
+        $response['input_errors'][] = [
+          'field' => 'message',
+          'message' => 'Message field is too short'
+        ];
+      }
+    }
 
-    die();
+    //Check if there no errors
+    if(!empty($response['input_errors'])) {
+      $response['success'] = false;
+      $response['message'] = 'Form input errors please check fields below';
+      echo json_encode($response);
+      exit();
+    }
+
+    //Send the Email
+    $emailBody = "
+    <html>
+    <body>
+    <h2>Fill Name: ". $firstName. " ". $lastName." </h2>
+    <h2><strong>Email: </strong> ".$email ."</h2>
+    <h2><strong>Age: </strong> ".$age ."</h2>
+    <h2><strong>School: </strong> ".$school ."</h2>
+    <h2><strong>Location:</strong> ".$location ."</h2>
+    <h2><strong>Application message: </strong>".$message."</h2>
+    </body>
+    </html>
+    ";
+
+    $mailSent = $this->sendEmail($firstName, $lastName, $email, $emailBody, 'application');
+
+    if(!$mailSent['success']) {
+      $response['success'] = false;
+      $response['message'] = $mailSent['errorMessage'];
+      echo json_encode($response);
+      exit();
+    }
+
+    $response['message'] = 'Thank you for contacting us, someone will respond to your message and get back to you!';
+    echo json_encode($response);
+    exit();
   }
 
   /**
@@ -289,22 +383,24 @@ class Ajax
   /*
   * Send Email 
   */
-  private function sendEmail($firstName, $lastName, $email, $message, $person) 
+  private function sendEmail($firstName, $lastName, $email, $emailBody, $formName) 
   {
     $response = [];
 
     //Email headers
     $headers ="MIME-Version: 1.0 \r\n";
     $headers .="Content-Type:text/html; charset=UTF-8 \r\n";
-    $headers .="From: <do46867@gmail.com> \r\n";
-    $toEmail = "support@ghsen.org";
-    $subject = "Contact Form Submission from $firstName $lastName";
-    $emailBody = "<h2>Contact Request</h2>
-                  <h4>The name of the sender is $firstName $lastName </h4>
-                  <h4><strong>Person sending the contact is a $person</strong</h4>
-                  <h4>Their email address is $email </h4>
-                  <h4><strong>Enquiry message: </strong>$message</h4>
-    ";
+    $headers .="From: support@ghsen.org <support@ghsen.org> \r\n";
+    $headers .="Reply-TO: ".$email." \r\n";
+    $toEmail = "support@ghsen.org, douglas16@yahoo.co.uk";
+
+    if($formName === 'contact') {
+      $subject = "Contact Form Submission from $firstName $lastName";
+    }
+
+    if($formName === 'application') {
+      $subject = "Application Form Submission from $firstName $lastName";
+    }
 
     //check if there no error message
     if(mail($toEmail, $subject, $emailBody, $headers)){

@@ -51,22 +51,22 @@ get_header();
     </div>
 
     <div class="field">
-      <input type="text" class="inutField" name="firstName" id="firstName" placeholder="First Name" minlength="4" required>
+      <input type="text" class="inputField" name="firstName" id="firstName" placeholder="First Name" minlength="4" required>
       <label for="firstName">First Name</label>
     </div>
 
     <div class="field">
-      <input type="text" class="inutField" name="lastName" id="lastName" placeholder="Last Name" minlength="4" required>
+      <input type="text" class="inputField" name="lastName" id="lastName" placeholder="Last Name" minlength="4" required>
       <label for="lastName">Last Name</label>
     </div>
 
     <div class="field">
-      <input type="email" class="inutField" name="email" id="email" placeholder="Email Address">
+      <input type="email" class="inputField" name="email" id="email" placeholder="Email Address">
       <label for="email">Email Address</label>
     </div>
 
     <div class="field">
-      <textarea name="message" class="inutField" id="message" cols="30" rows="10" placeholder="Message" minlength="6" required></textarea>
+      <textarea name="message" class="inputField" id="message" cols="30" rows="10" placeholder="Message" minlength="6" required></textarea>
       <label for="message">Message</label>
     </div>
 

@@ -160,10 +160,12 @@ get_header();
       </section>
       <!--Register-->
       <section class="row" id="pattern">
+        <div class="container">
           <h3 class="sub_heading">
               Start your recruiting process today.
           </h3>
-              <a href="<?= home_url();?>/application/" class="btn btn-primary">Register Today</a>
+          <a href="<?= home_url();?>/application/" class="btn btn-primary">Register Today</a>
+        </div>
       </section>
 
 <?php

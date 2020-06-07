@@ -14,6 +14,20 @@
   
     //li items
     const menuItems = document.querySelectorAll('.menu-item');
+    menuItems.forEach(item => {
+      if(item.classList.contains('menu-item-has-children')) {
+        item.addEventListener('click', (e) => {
+          let siblingElm = e.target.nextElementSibling;
+          siblingElm.classList.toggle('show-sub-menu');
+          
+          if(siblingElm.style.maxHeight) {
+            siblingElm.style.maxHeight = null;
+          } else {
+            siblingElm.style.maxHeight = siblingElm.scrollHeight+'px';
+          }
+        });
+      }
+    });
     
     //Add event to click
     menuBtn.addEventListener('click', showMenu);
@@ -25,6 +39,7 @@
       mainNav.classList.toggle('mobile_nav');
       menuItems.forEach(item => item.classList.toggle('right-show'));
     }
+
   });
 
 })();

@@ -85,15 +85,24 @@ header.top .header-container .main_nav .menu .menu-item-has-children {
 }
 
 header.top .header-container .main_nav .menu .menu-item-has-children .sub-menu {
-  display: none;
   opacity: 0;
   visibility: hidden;
   position: absolute;
   background: #272525;
-  min-width: 305px;
+  min-width: 250px;
   top: 35px;
+  left: 0px;
   -webkit-transition: all 0.5s ease-in-out;
   transition: opacity 300ms, visibility 300ms;
+
+  &.show-sub-menu {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+header.top .header-container .main_nav.mobile_nav .menu .menu-item-has-children .sub-menu {
+  max-height: 0px;
 }
 
 header.top .header-container .main_nav .menu .menu-item-has-children .sub-menu a {
@@ -145,10 +154,11 @@ header.top .header-container .main_nav .menu .menu-item-has-children .sub-menu:b
   color: #272525;
 }
 
-header.top .header-container .main_nav .menu .menu-item-has-children:hover .sub-menu {
-  display: block;
-  opacity: 1;
-  visibility: visible;
+@media screen and (min-width: 1025px) {
+  header.top .header-container .main_nav .menu .menu-item-has-children:hover .sub-menu {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
 header.top .header-container .main_nav .menu .menu-item-has-children > a:after {

@@ -70,12 +70,13 @@
     padding: 100px 0 0px 0;
     background: #f9f9f9;
   }
-  .review-row{
-    flex-direction: column;
-  }
+
   .review-row .review-img{
     flex:  0 0 100%;
     margin-bottom: 35px;
+  }
+  .review-row .review-word {
+    flex:  0 0 100%;
   }
 
   .review-row:nth-child(even) .review-img{
@@ -307,10 +308,10 @@
 @media screen and (max-width: 460px) {
   /*Header banner Styling*/
   #banner {
-    margin-top: 20px;
+    margin-top: 40px;
   }
   #banner .container h1 {
-    font-size: 2.12rem !important;
+    font-size: 1.85rem !important;
   }
   #banner .container .welcome {
     font-size: 14px;
@@ -325,9 +326,9 @@
   .page-template-page {
     &-about, &-contact, &-application {
       #banner {
-      top: 55%;
-      -webkit-transform: translateY(-55%);
-      transform: translateY(-55%);
+        top: 55%;
+        -webkit-transform: translateY(-55%);
+        transform: translateY(-55%);
       }
     }
   }
@@ -335,7 +336,7 @@
   .page-template-page {
     &-about, &-contact {
       .showcase {
-        min-height: 350px;
+        min-height: 450px;
       }
     }
   }
@@ -344,11 +345,11 @@
     padding: 0 !important;
     margin-bottom: 20px;
   }
-  .top_heading {
-    font-size: 34px;
+  .top_heading, #missionVision .top_heading {
+    font-size: 1.75rem;
     letter-spacing: -0.016em;
     padding: 0 10px;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1rem;
   }
   .col-row .col-p {
     font-size: 1rem;

@@ -1,49 +1,83 @@
 /*Header banner Styling*/
-#about #banner, #contact #banner, #application #banner, #resource #banner, #athlete #banner, #blog #banner, #testimonials #banner {
+@mixin bannerText {
   text-align: center;
   position: absolute;
   top: 50%;
   margin-top: 0px;
   -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
-#about, #contact {
-  min-height: 450px;
-}
-
-#application, #resource, #athlete, #blog, #testimonials {
-  min-height: 300px;
-}
-
-#appliacation #banner, #resource #banner, #athlete #banner, #blog #banner, #review #banner {
-  margin-top: 20px;
-}
-
-#appliacation #banner h1 {
-  font-size: 3rem;
-}
-
-#resource #banner h1, #athlete #banner h1, #blog #banner h1 {
-  font-size: 3.5rem;
-}
-
-#review #banner h1{
-  font-size: 2.8rem;
-}
-
-#home, #about, #contact, #application, #resource, #athlete, #blog, #testimonials {
+@mixin showcaseCover {
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
+#home {
+  @include showcaseCover;
+}
+
+.page-template-page{
+  &-about, &-contact, &-application, &-resource, &-athlete, &-scholarship, &-testimonials {
+    .showcase {
+      @include showcaseCover;
+    }
+  }
+}
+
+.blog, .archive.category, .single-post {
+  .showcase {
+    @include showcaseCover;
+    min-height: 300px;
+  }
+
+  #banner {
+    @include bannerText;
+    margin-top: 20px;
+    .container {
+      h1 {
+        font-size: 3.5rem;
+      }
+      h2 {
+        font-size: 2.5rem;
+      }
+      h2, h3, h4, h5, h6 {
+        color: #fff !important;
+      }
+    }
+  }
+}
+
+.single-post {
+  .showcase {
+    @include showcaseCover;
+    min-height: 480px;
+  }
+}
+
+.page-template-page{
+  &-about, &-contact {
+    .showcase {
+      min-height: 450px;
+    }
+  }
+}
+
+.page-template-page{
+  &-application, &-resource, &-athlete, &-scholarship, &-testimonials {
+    .showcase {
+      min-height: 300px;
+    }
+  }
+}
+
 #banner {
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   width: 100%;
   margin-top: 20px;
 }
@@ -80,4 +114,56 @@
 
 #banner .container a {
   color: #fff;
+}
+
+.page-template-page{
+  &-about, &-contact, &-application, &-resource, &-scholarship, &-athlete, &-testimonials {
+    #banner {
+      @include bannerText;
+    }
+  }
+}
+
+.page-template-page{
+  &-application, &-resource, &-scholarship, &-athlete, &-testimonials {
+    #banner {
+      margin-top: 20px;
+    }
+  }
+}
+
+.page-template-page{
+  &-application {
+    #banner {
+      .container {
+        h1 {
+          font-size: 3rem;
+        }
+      }
+    }
+  }
+}
+
+.page-template-page{
+  &-resource, &-athlete, &-scholarship {
+    #banner {
+      .container {
+        h1 {
+          font-size: 3.5rem;
+        }
+      }
+    }
+  }
+}
+
+.page-template-page{
+  &-testimonials {
+    #banner {
+      .container {
+        h1 {
+          font-size: 2.8rem;
+        }
+      }
+    }
+  }
 }

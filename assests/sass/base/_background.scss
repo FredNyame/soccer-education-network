@@ -26,30 +26,46 @@
   background-image: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/home.png");
 }
 
-#about {
-  background: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/about.jpg");
+.page-template-page{
+  &-about{
+    .showcase {
+      background: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/about.jpg");
+    }
+  }
+
+  &-contact {
+    .showcase {
+      background: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/contact.jpg");
+    }
+  }
+
+  &-application {
+    .showcase {
+      background: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/appBanner.png");
+    }
+  }
+
+  &-resource {
+    .showcase {
+      background: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/resourcebanner.png");
+    }
+  }
+
+  &-testimonials {
+    .showcase {
+      background: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/resourceBck.png");
+    }
+  }
+
+  &-athlete, &-scholarship {
+    .showcase {
+      background: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/bckAthlete.png");
+    }
+  }
 }
 
-#contact {
-  background: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/contact.jpg");
-}
-
-#application {
-  background: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/appBanner.png");
-}
-
-#resource{
-  background: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/resourcebanner.png");
-}
-
-#testimonials {
-  background: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/resourceBck.png");
-}
-
-#athlete {
-  background: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/bckAthlete.png");
-}
-
-#blog {
-  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/bckAthlete.png");
+.blog, .archive.category {
+  .showcase {
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url("../../images/bckAthlete.png");
+  }
 }

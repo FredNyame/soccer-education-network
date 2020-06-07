@@ -23,7 +23,7 @@ get_header();
     In Ghana & Beyond
   </h1>
   <p class="tagline">We specialize in the recruiting process from researching which<br/>schools are a fit, to communicating with college coaches, to resources<br/>for SAT Prep, Ghana Soccer Education Network has you covered.</p>
-  <a href=" http://localhost/SoccerSitetoWordpress/application" class="btn btn-primary">Get Started</a>
+  <a href="<?= home_url();?>/application" class="btn btn-primary">Get Started</a>
 </div>
 </div>
 <!--Down Arrow-->
@@ -163,7 +163,7 @@ get_header();
           <h3 class="sub_heading">
               Start your recruiting process today.
           </h3>
-              <a href="http://localhost/SoccerSitetoWordpress/application/" class="btn btn-primary">Register Today</a>
+              <a href="<?= home_url();?>/application/" class="btn btn-primary">Register Today</a>
       </section>
 
 <?php

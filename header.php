@@ -30,8 +30,13 @@ $page_slug = $post->post_name;
 
 <body <?php body_class(); ?>>
 <!--Nav and Showcase-->
-<div class="showcase" id="<?php echo is_home() ? 'home' : $page_slug;?>">
+<?php 
+	if( is_single() && 'post' == get_post_type() ) {
+		$background = "background: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(53, 53, 49, 0.6)), url(". get_the_post_thumbnail_url() .") no-repeat center center/cover";
+	}
+?>
 
+<div class="showcase" id="<?php echo is_front_page() ? 'home' : $page_slug;?>" style="<?= $background ;?>">
 <!--Header-->
 	<header id="header" class="top">
 		<div class="header-container">

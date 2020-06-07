@@ -14,46 +14,51 @@
 
 get_header();
 ?>
+	<div id="banner" class="section_style">
+		<div class="container">
+			<?php if(is_category()): ?>
+				<h2>BLOG</h2>
+				<h1><?= ucwords(get_the_archive_title()) ;?></h1>
+			<?php else: ?>
+				<h1><?php single_post_title(); ?></h1>
+			<?php endif; ?>
+		</div>
+	</div>
+</div>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+<div class="container">
+	<?php
+	if ( have_posts() ) : ?>
+	<div class="main-blog">
+		<div class="blog-container">
+		
+		<?php /* Start the Loop */
+		while ( have_posts() ) :
+			the_post();
 
-		<?php
-		if ( have_posts() ) :
+			/*
+				* Include the Post-Type-specific template for the content.
+				* If you want to override this in a child theme, then include a file
+				* called content-___.php (where ___ is the Post Type name) and that will be used instead.
+				*/
+			get_template_part( 'template-parts/content', get_post_type() );
 
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-				<?php
-			endif;
+		endwhile; ?>
+		
+		<div class="pagination-wrapper">
+      <?php echo the_posts_pagination(['screen_reader_text' => __(' ')]); ?>
+    </div>
 
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+	<?php else :
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+		get_template_part( 'template-parts/content', 'none' );
 
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
+	endif;
+	?>
+		</div><!--end of blog container-->
+	</div>
+</div>
 
 <?php
-get_sidebar();
+//get_sidebar();
 get_footer();

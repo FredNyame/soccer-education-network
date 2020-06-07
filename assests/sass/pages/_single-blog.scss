@@ -7,6 +7,18 @@
 .container #main .sec-main{
   position: relative;
   width: 100%;
+  padding: 0px 0px 50px 0px;
+}
+
+.meta-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 30px 0px 20px 0px;
+
+  .meta-time {
+    text-transform: uppercase;
+  }
 }
 
 .container #main::after, .sec-main:after{
@@ -39,15 +51,53 @@
   color: #120404 !important;
 }
 
+.container #main .sec-main h2, h3{
+  color: #333 !important;
+}
+
 .container #main .sec-main h2{
   font-size: 28px;
   color: #333 !important;
+
+  @media screen and (max-width: 460px) {
+    font-size: 20px;
+  }
+}
+
+.container #main .sec-main h3 {
+  font-size: 22px;
+
+  @media screen and (max-width: 460px) {
+    font-size: 18px;
+  }
+
+  &~ul {
+    margin-top: 1rem;
+  }
 }
 
 .container #main .sec-main p{
   margin:1rem 0;
   line-height: 2;
   color: #575757 !important;
+}
+
+.container #main .sec-main ul, ol {
+  padding-left: 2rem;
+  line-height: 2;
+  color: #575757 !important;
+}
+
+.container #main .sec-main ul {
+  li {
+    list-style-type: disc;
+  }
+}
+
+.container #main .sec-main ol {
+  li {
+    list-style-type: decimal;
+  }
 }
 
 .container .entry-content{
@@ -86,35 +136,72 @@
 
 .related-post{
   padding: 50px 0;
+
+  @media screen and (max-width: 460px) {
+    padding-bottom: 20px;
+  }
 }
 
 .related-header{
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-  color: #928e8e;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #120404;
+
+  @media screen and (max-width: 460px) {
+    font-size: 1.75rem;
+  }
 }
 
 .related-grid{
-  display: grid;
-  grid-gap: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
   width: 100%;
   margin: 0 auto;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
+  @media screen and (max-width: 460px) {
+    flex-direction: column;
+  }
 }
 
 .related{
   border-radius: 3px;
+  max-width: calc(33% - 1rem);
+  flex-basis: calc(33% - 1rem);
+  width: 100%;
+
+  @media screen and (max-width: 768px) {
+    max-width: calc(50% - 1rem);
+    flex-basis: calc(50% - 1rem);
+    margin-bottom: 3rem;
+  }
+
+  @media screen and (max-width: 460px) {
+    max-width: calc(100% - 0rem);
+    flex-basis: calc(100% - 0rem);
+  }
 }
 
 .related-img{
+  position: relative;
   height: 200px;
   background: #ccc;
   margin-bottom: 10px;
   border-radius: 3px;
+  overflow: hidden;
 }
 
-.related a{
+.related h4{
   font-size: 18px;
   font-weight: 700;
-  color: #120404;
+
+  a {
+    color: #120404;
+    transition: all 0.3s ease-in-out;
+
+    &:hover, &:focus {
+      color: #F01D1D;
+    }
+  }
 }

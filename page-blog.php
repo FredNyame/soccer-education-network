@@ -1,11 +1,7 @@
 <?php
 /**
- * The template for displaying all pages
+ * Template Name: Blog
  *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -48,6 +44,7 @@ get_header();
           <div class="blog-img">
             <?php the_post_thumbnail();?>
           </div>
+
           <div class="blog-info">
             <div class="blog-title">
               <h4><?php the_title();?></h4>
@@ -66,11 +63,13 @@ get_header();
       //reset WP_Query
       wp_reset_query();
     endif; ?>
+
     <div class="pagination-wrapper">
       <?php echo paginate_links(array(
         'total'=> $news->max_num_pages
       ));?>
     </div>
+
   </div>
   </div>
 </div>

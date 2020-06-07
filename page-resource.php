@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all pages
+ * Template Name: Resource
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
@@ -61,7 +61,7 @@ get_header();
                 }
                 ?>
               </div>
-              <p class="view-more">view more</p>
+              <p class="view-more">View More</p>
             </a>
           </div>
         </div>
@@ -97,7 +97,7 @@ get_header();
                   }
                 ?>
               </div>
-              <p class="view-more">view more</p>
+              <p class="view-more">View More</p>
             </a>
           </div>
         </div>
@@ -133,7 +133,7 @@ get_header();
                   }
                 ?>
               </div>
-              <p class="view-more">view more</p>
+              <p class="view-more">View More</p>
             </a>
           </div>
         </div>
@@ -169,7 +169,7 @@ get_header();
                   }
                ?>
              </div>
-             <p class="view-more">view more</p>
+             <p class="view-more">View More</p>
            </a>
          </div>
        </div>
@@ -205,7 +205,7 @@ get_header();
                     }
                 ?>
               </div>
-              <p class="view-more">view more</p>
+              <p class="view-more">View More</p>
             </a>
           </div>
         </div>

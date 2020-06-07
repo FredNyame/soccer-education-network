@@ -25,6 +25,7 @@ class Theme
     add_action( 'after_setup_theme', [$this, 'gsen_content_width'], 0 );
     add_action( 'wp_enqueue_scripts', [$this, 'gsen_styles'], 10 );
     add_action( 'wp_enqueue_scripts', [$this, 'gsen_scripts'], 10 );
+    add_action( 'pre_get_posts', [$this, 'change_post_query'] );
     add_action( 'widgets_init', [$this, 'gsen_widgets_init'] );
     add_action('phpmailer_init', [$this, 'mailtrap']);
     add_action('upload_mimes', [$this, 'cc_mime_types']);
@@ -232,12 +233,23 @@ class Theme
     $phpmailer->Password = 'f1c84bcf2ab7c7';
   }
 
+  /**
+   * Change the main query for the post type
+   */
+  public function change_post_query($query) {
+    if(!is_admin() && $query->is_main_query()) {
+      $cPage = get_query_var('paged');
+
+      $query->set('category_name', 'news');
+      //$query->set('paged', $cPage);
+    }
+  }
+
   //Allows SVG uploads
   public function cc_mime_types($mimes)
   {
     $mimes['svg'] = 'image/svg+xml';
     return $mimes;
   }
-
 
 }

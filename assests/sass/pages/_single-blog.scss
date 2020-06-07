@@ -8,16 +8,84 @@
   position: relative;
   width: 100%;
   padding: 0px 0px 50px 0px;
-}
 
-.meta-info {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 30px 0px 20px 0px;
+  p {
+    margin:1rem 0;
+    line-height: 2;
+    color: #575757 !important;
+  }
 
-  .meta-time {
-    text-transform: uppercase;
+  .meta-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0px 20px 0px;
+
+    @media screen and (max-width: 460px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .meta-time {
+      text-transform: uppercase;
+      font-weight: bold;
+      background: #f9f9f9 ;
+      padding: 0.5rem 1rem;
+      box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+
+      @media screen and (max-width: 460px) {
+        margin-bottom: 1.2rem;
+      }
+    }
+  
+    .share-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @media screen and (max-width: 460px) {
+        margin-bottom: 1.2rem;
+      }
+  
+      p {
+        margin: 0;
+        font-size: 1.125rem;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      ul {
+        display: flex;
+        align-items: center;
+        padding-left: 0.5rem;
+
+        li {
+          list-style: none;
+          margin-left: 1rem;
+
+          a {
+            display: block;
+            position: relative;
+            width: 2.3rem;
+            height: 2.3rem;
+            padding: 0.4rem;
+            background-color: #1a1a1a;
+            border-radius: 50%;
+    
+            svg {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: 55%;
+              height: 55%;
+            }
+          }
+        }
+      }
+  
+    }
   }
 }
 
@@ -74,12 +142,6 @@
   &~ul {
     margin-top: 1rem;
   }
-}
-
-.container #main .sec-main p{
-  margin:1rem 0;
-  line-height: 2;
-  color: #575757 !important;
 }
 
 .container #main .sec-main ul, ol {
@@ -190,6 +252,12 @@
   margin-bottom: 10px;
   border-radius: 3px;
   overflow: hidden;
+
+  img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
 
 .related h4{

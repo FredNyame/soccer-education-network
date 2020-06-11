@@ -66,33 +66,35 @@ get_header();
 </div>
 </div>
 </section>
+
 <!--Founders / Team Section Info-->
 <section class="row bgk_change" id="founders">
-<h2 class="top_heading">The Team</h2>
-<div class="container">
-  <?php
-  $args = array(
-    'category_name' => 'team',
-    'order' => 'ASC'
-  );
-  $team = new WP_Query($args);
-  while ( $team->have_posts() ) :
-    $team->the_post();?>
-    <div class="row-founder">
-      <div class="img-founder">
-        <?php the_post_thumbnail();?>
+  <h2 class="top_heading">The Team</h2>
+  <div class="container">
+    <?php
+    $args = array(
+      'category_name' => 'team',
+      'order' => 'ASC'
+    );
+    $team = new WP_Query($args);
+    while ( $team->have_posts() ) :
+      $team->the_post();?>
+      <div class="row-founder">
+        <div class="img-founder">
+          <?php the_post_thumbnail();?>
+        </div>
+        <div class="p-founder">
+          <h3 class="team-name"><?php the_title();?></h3>
+          <?php the_content();?>
+        </div>
       </div>
-      <div class="p-founder">
-        <h3 class="team-name"><?php the_title();?></h3>
-        <?php the_content();?>
-      </div>
-    </div>
-  <?php
-  endwhile; // End of the loop.
-  wp_reset_query();
-  ?>
-</div>
+    <?php
+    endwhile; // End of the loop.
+    wp_reset_query();
+    ?>
+  </div>
 </section>
+
 <!--Frequently Asked Question-->
 <section class="row">
 <h2 class="top_heading">Frequently Asked Questions</h2>

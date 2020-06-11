@@ -1,2 +1,889 @@
-!function(e){var t={};function r(n){if(t[n])return t[n].exports;var o=t[n]={i:n,l:!1,exports:{}};return e[n].call(o.exports,o,o.exports,r),o.l=!0,o.exports}r.m=e,r.c=t,r.d=function(e,t,n){r.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:n})},r.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},r.t=function(e,t){if(1&t&&(e=r(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(r.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)r.d(n,o,function(t){return e[t]}.bind(null,o));return n},r.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return r.d(t,"a",t),t},r.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},r.p="/",r(r.s=0)}([function(e,t,r){r(1),e.exports=r(10)},function(e,t,r){r(2),r(3),r(4),r(5),r(6),r(7),r(8),r(9)},function(e,t){document.addEventListener("DOMContentLoaded",(function(){var e=document.querySelector(".mobile-container"),t=document.querySelector("#date"),r=document.querySelector(".main_nav");t.innerHTML=(new Date).getFullYear();var n=document.querySelectorAll(".menu-item");n.forEach((function(e){e.classList.contains("menu-item-has-children")&&e.addEventListener("click",(function(e){var t=e.target.nextElementSibling;t.classList.toggle("show-sub-menu"),t.style.maxHeight?t.style.maxHeight=null:t.style.maxHeight=t.scrollHeight+"px"}))})),e.addEventListener("click",(function(){e.classList.toggle("change"),r.classList.toggle("right-show"),r.classList.toggle("mobile_nav"),n.forEach((function(e){return e.classList.toggle("right-show")}))}))}))},function(e,t){var r=window.pageYOffset||document.documentElement.scrollTop||document.body.scrollTop;window.addEventListener("scroll",(function(){var e=window.pageYOffset||document.documentElement.scrollTop||document.body.scrollTop;(function(e){var t=document.querySelector("#header");r>e?t.classList.add("reveal"):t.classList.remove("reveal");0===(r=e)&&t.classList.remove("reveal")})(e),t=e,n=document.querySelector(".showcase").clientHeight,t>n?document.querySelector(".top-arrow").classList.add("show-top-arrow"):document.querySelector(".top-arrow").classList.remove("show-top-arrow");var t,n})),document.querySelector(".top-arrow").addEventListener("click",(function(){var e,t,r,n,o,l,a,i;e="#header",t=1e3,r=document.querySelector(e),n=t,o=r.getBoundingClientRect().top,l=window.pageYOffset,a=o-l,i=null,requestAnimationFrame((function e(t){null===i&&(i=t);var r,o,c,u=t-i,s=(r=u,o=l,c=a,(r/=n/2)<1?c/2*r*r+o:(r--,-c/2*(r*(r-2)-1)+o));window.scrollTo(0,s),u<n&&requestAnimationFrame(e)}))}))},function(e,t){var r;(r=document.querySelector(".col-row"))&&r.addEventListener("click",(function(e){for(var t=r.querySelectorAll(".col-3"),n=t.length,o=0;o<n;o++)for(var l=t[o].querySelectorAll(".strong"),a=l.length,i=0;i<a;i++){var c=l[i].parentNode.parentNode.nextElementSibling;e.target===l[i]?(c.classList.add("show"),console.log("show")):c.classList.remove("show")}}),!0)},function(e,t){document.addEventListener("DOMContentLoaded",(function(){document.querySelector(".slide-wrap");var e=document.querySelectorAll(".words"),t=document.querySelector("a.prev"),r=document.querySelector("a.next");null!=e&&e.length>0&&e[0].clientWidth,null!=t&&null!=t&&t.addEventListener("click",(function(){o(-1)})),null!=r&&null!=r&&r.addEventListener("click",(function(){o(1)}));var n=1;function o(e){l(n+=e)}function l(t){if(t>e.length&&(n=1),t<1&&(n=e.length),null!=e&&e.length>0){for(var r=0;r<e.length;r++)e[r].style.display="none";e[n-1].style.display="block"}}l(n)}))},function(e,t){document.addEventListener("DOMContentLoaded",(function(){var e=document.querySelectorAll(".faq-show");function t(){this.classList.toggle("active");var e=this.nextElementSibling,t=e.scrollHeight;e.style.maxHeight?e.style.maxHeight=null:e.style.maxHeight=t+"px"}null!=e&&null!=e&&e.forEach((function(e){return e.addEventListener("click",t)}))}))},function(e,t){var r;null!=(r=document.querySelector(".wrap"))&&null!=r&&r.addEventListener("click",(function(e){e.preventDefault();for(var t=r.querySelectorAll("img"),n=0;n<t.length;n++){var o=t[n].parentElement.parentElement.nextElementSibling;e.target===t[n]?o.classList.add("show"):o.classList.remove("show")}}),!0)},function(e,t){function r(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}var n=function(){function e(){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e)}var t,n,o;return t=e,o=[{key:"showError",value:function(t,r){t.classList.add("error");var n=t.id||t.name;if(n){var o=e.createDiv(t,n);t.setAttribute("aria-describedby","error-for-"+n),o.innerHTML=r,o.style.display="block",o.style.visibility="visible"}}},{key:"createDiv",value:function(e,t){var r,n=e.form.querySelector(".error-message#error-for-"+t);return n||((n=document.createElement("div")).className="error-message",n.id="error-for-"+t,"radio"!==e.type&&"checkbox"!==e.type||(r=e.form.querySelector('label[for="'+t+'"]')||e.parentNode)&&r.parentNode.insertBefore(n,r.nextSibling),r||e.parentNode.appendChild(n)),n}},{key:"removeError",value:function(e){if(e.classList.remove("error"),e.removeAttribute("aria-describedby"),"radio"===e.type&&e.name){var t=e.form.querySelectorAll('[name="'+e.name+'"]');if(t.length>0){for(var r=0;r<t.length;r++)t[r].classList.remove("error");e=t[t.length-1]}}var n=e.id||e.name;if(n){var o=e.form.querySelector(".error-message#error-for-"+n);o&&(o.innerHTML="",o.style.display="none",o.style.visibility="hidden")}}},{key:"clearFields",value:function(){document.getElementById("firstName").value="",document.getElementById("lastName").value="",document.getElementById("email").value="",document.getElementById("message").value="",document.querySelector("#application-form")&&(document.getElementById("age").value="",document.getElementById("school").value="",document.getElementById("location").value=""),document.querySelectorAll("#person").forEach((function(e){!0===e.checked&&(e.value="")}))}}],(n=null)&&r(t.prototype,n),o&&r(t,o),e}(),o=function(e){if("reset"!==e.type&&"file"!==e.type){var t=e.validity;if("radio"===e.type)for(var r=document.getElementsByName("Person"),n=0;n<r.length;n++)return!0===r[0].checked||!0===r[1].checked?"":"Please select one";if(!t.valid){if(t.valueMissing)return"Please fill out this field.";if(t.typeMismatch){if("email"===e.type){return/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(e.value)?"":"Please enter a valid email address"}return"url"===e.type?"Please enter a valid URL.":"Please use the correct input type."}return t.tooShort?"Please lengthen this text to "+e.getAttribute("minLength")+" characters or more. You are currently using "+e.value.length+" characters.":t.tooLong?"Please shorten this text to "+e.getAttribute("maxLength")+" characters or more. You are currently using "+e.value.length+" characters.":t.badInput?"Please enter a number.":t.stepMismatch?"Please select a valid value.":"The value you entered for this field is invalid."}}},l=document.querySelector("#application-form");function a(){var e=l.querySelectorAll(".error-message"),t=l.querySelectorAll(".inputField");t&&t.forEach((function(e){e.classList.remove("error")})),e&&e.forEach((function(e){e.innerHTML="",e.style.display="none"}))}null!=l&&null!=l&&(l.addEventListener("blur",(function(e){var t=o(e.target);if(t)return void n.showError(e.target,t);n.removeError(e.target)}),!0),l.setAttribute("novalidate",!0),l.addEventListener("submit",(function(e){e.preventDefault();for(var t,r,i=e.target.elements,c=0;c<i.length;c++)(t=o(i[c]))&&(n.showError(i[c],t),r||(r=i[c]));if(r)return void r.focus();var u=new FormData(l);if(u.gsen_hp)return;!function(e){fetch(form_info.form_url,{method:"POST",body:e}).then((function(e){return e.json()})).then((function(e){console.log(e),0==e.success?(l.querySelector("#formError").innerHTML=e.message,a(),e.input_errors.forEach((function(e){var t=l.querySelector("#"+e.field);n.showError(t,e.message)}))):(l.querySelector("#formError").innerHTML="",l.querySelector("#success-msg").innerHTML=e.message,a(),l.reset())})).catch((function(e){console.log(e)}))}(u)})))},function(e,t){function r(e){return(r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}document.addEventListener("DOMContentLoaded",(function(){var e=document.querySelector("#contact-form");function t(){var t=e.querySelectorAll(".error-message"),r=e.querySelectorAll(".inputField");r&&r.forEach((function(e){e.classList.remove("error")})),t&&t.forEach((function(e){e.innerHTML="",e.style.display="none"}))}null!=e&&null!=e&&e.addEventListener("submit",(function(n){n.preventDefault();var o=new FormData(e);o.gsen_hp||fetch(form_info.form_url,{method:"POST",body:o}).then((function(e){return e.json()})).then((function(n){if(n.success)e.querySelector("#formError").innerHTML="",e.querySelector("#success-msg").innerHTML=n.successMessage,t(),e.reset();else if(e.querySelector("#formError").innerHTML=n.errorMessage,n.errorInputs.length>0&&void 0!==r(n.errorInputs)&&Array.isArray(n.errorInputs)){t();var o=n.errorInputs[0].field;e.querySelector("#".concat(o)).focus(),n.errorInputs.forEach((function(t){var r=e.querySelector("#".concat(t.field));"person"!==t.field&&r.classList.add("error"),function(e,t,r){var n=e.parentElement.querySelector(".error-message");n||((n=document.createElement("p")).className="error-message",n.id="error-"+t,e.parentElement.append(n)),r&&(n.innerHTML=r,n.style.display="block",n.style.visibility="visible")}(r,t.field,t.message)}))}})).catch((function(t){e.querySelector("#formError").innerHTML="Sorry an error occuried. Please try again later"}))}))}))},function(e,t){}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./assests/js/components/accordion.js":
+/*!********************************************!*\
+  !*** ./assests/js/components/accordion.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    //Get the items to click on
+    var buttonClick = document.querySelectorAll('.faq-show');
+
+    if (buttonClick != null && buttonClick != undefined) {
+      //loop through to add event listener
+      buttonClick.forEach(function (btn) {
+        return btn.addEventListener('click', showPanel);
+      });
+    } //Function to show panel
+
+
+    function showPanel() {
+      //get the next sibling element
+      this.classList.toggle('active');
+      var nextSibElm = this.nextElementSibling;
+      var heightNextSib = nextSibElm.scrollHeight; //check if the element has height
+
+      if (nextSibElm.style.maxHeight) {
+        nextSibElm.style.maxHeight = null;
+      } else {
+        nextSibElm.style.maxHeight = heightNextSib + 'px';
+      } //console.log(this);
+
+    }
+  });
+})();
+
+/***/ }),
+
+/***/ "./assests/js/components/carousel.js":
+/*!*******************************************!*\
+  !*** ./assests/js/components/carousel.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function () {
+  document.addEventListener("DOMContentLoaded", function () {
+    //get all items
+    var wrapper = document.querySelector(".slide-wrap");
+    var allCards = document.querySelectorAll(".words");
+    var size;
+    var prevBtn = document.querySelector("a.prev");
+    var nextBtn = document.querySelector("a.next");
+
+    if (allCards != undefined && allCards.length > 0) {
+      size = allCards[0].clientWidth;
+    }
+
+    if (prevBtn != undefined && prevBtn != null) {
+      prevBtn.addEventListener('click', function () {
+        //wrapper.style.transition = 'transition 0.5s ease-in-out';
+        slideIndexFun(-1);
+      });
+    }
+
+    if (nextBtn != undefined && nextBtn != null) {
+      nextBtn.addEventListener('click', function () {
+        //wrapper.style.transition = 'transition 0.5s ease-in-out';
+        slideIndexFun(1);
+      });
+    } //Keep track of the current Index
+
+
+    var sliderIndex = 1;
+    sliderFun(sliderIndex);
+
+    function slideIndexFun(n) {
+      sliderFun(sliderIndex += n);
+    } //Display and control function
+
+
+    function sliderFun(numIndex) {
+      if (numIndex > allCards.length) {
+        sliderIndex = 1;
+      }
+
+      if (numIndex < 1) {
+        sliderIndex = allCards.length;
+      }
+
+      if (allCards != undefined && allCards.length > 0) {
+        for (var i = 0; i < allCards.length; i++) {
+          allCards[i].style.display = "none";
+        }
+
+        allCards[sliderIndex - 1].style.display = "block";
+      }
+    }
+  });
+})();
+
+/***/ }),
+
+/***/ "./assests/js/components/contact.js":
+/*!******************************************!*\
+  !*** ./assests/js/components/contact.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    //Get ref to the contact form
+    var contactFrom = document.querySelector("#contact-form");
+
+    if (contactFrom != null && contactFrom != undefined) {
+      contactFrom.addEventListener('submit', handleContact);
+    } //Handles the Contact form submission
+
+
+    function handleContact(e) {
+      e.preventDefault();
+      var formData = new FormData(contactFrom); //if spam field is filled return
+
+      if (formData['gsen_hp']) return; //Make Ajax Request
+
+      fetch(form_info.form_url, {
+        method: 'POST',
+        body: formData
+      }).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        //check if there are errors
+        if (!data['success']) {
+          contactFrom.querySelector('#formError').innerHTML = data.errorMessage;
+
+          if (data.errorInputs.length > 0 && _typeof(data.errorInputs) !== undefined && Array.isArray(data.errorInputs)) {
+            removeErrorMessages();
+            var firstElement = data.errorInputs[0]['field'];
+            contactFrom.querySelector("#".concat(firstElement)).focus();
+            data.errorInputs.forEach(function (element) {
+              var elementDIV = contactFrom.querySelector("#".concat(element['field']));
+
+              if (element['field'] !== 'person') {
+                elementDIV.classList.add('error');
+              }
+
+              showErrorMessages(elementDIV, element['field'], element['message']);
+            });
+          }
+        } else {
+          contactFrom.querySelector('#formError').innerHTML = '';
+          contactFrom.querySelector('#success-msg').innerHTML = data.successMessage;
+          removeErrorMessages();
+          contactFrom.reset();
+        }
+      })["catch"](function (error) {
+        contactFrom.querySelector('#formError').innerHTML = 'Sorry an error occuried. Please try again later';
+      });
+    } //Check error message 
+
+
+    function showErrorMessages(element, field, message) {
+      //Check if there is an error that exist if not create one
+      var errorMessage = element.parentElement.querySelector('.error-message');
+
+      if (!errorMessage) {
+        //Create error element
+        errorMessage = document.createElement('p');
+        errorMessage.className = 'error-message';
+        errorMessage.id = 'error-' + field;
+        element.parentElement.append(errorMessage);
+      } // Show error message
+
+
+      if (message) {
+        errorMessage.innerHTML = message;
+        errorMessage.style.display = 'block';
+        errorMessage.style.visibility = 'visible';
+      }
+    } //Remove error message
+
+
+    function removeErrorMessages() {
+      //Get all error message and hide them
+      var errorMessages = contactFrom.querySelectorAll('.error-message');
+      var inputFields = contactFrom.querySelectorAll('.inputField');
+
+      if (inputFields) {
+        inputFields.forEach(function (field) {
+          field.classList.remove('error');
+        });
+      }
+
+      if (errorMessages) {
+        errorMessages.forEach(function (element) {
+          element.innerHTML = '';
+          element.style.display = 'none';
+        });
+      }
+    }
+  });
+})();
+
+/***/ }),
+
+/***/ "./assests/js/components/form.js":
+/*!***************************************!*\
+  !*** ./assests/js/components/form.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+///////////////////////////////////////////////////
+//UI class: handles showing and removing error messages
+var UI = /*#__PURE__*/function () {
+  function UI() {
+    _classCallCheck(this, UI);
+  }
+
+  _createClass(UI, null, [{
+    key: "showError",
+    value: function showError(fieldInput, error) {
+      //If there is an error add a class to the form input
+      fieldInput.classList.add('error'); // Get field id or name
+
+      var id = fieldInput.id || fieldInput.name;
+      if (!id) return; //if nothing was return don't continue
+
+      var message = UI.createDiv(fieldInput, id); // Add ARIA role to the field
+
+      fieldInput.setAttribute('aria-describedby', 'error-for-' + id); //Showing the error messsge
+      //Update error message
+
+      message.innerHTML = error; // Show error message
+
+      message.style.display = 'block';
+      message.style.visibility = 'visible';
+    }
+  }, {
+    key: "createDiv",
+    value: function createDiv(formField, id) {
+      //Check if there is an error that exist if not create one
+      var message = formField.form.querySelector('.error-message#error-for-' + id);
+
+      if (!message) {
+        //Create a div tag to contain the error and class of error to style it up
+        message = document.createElement('div');
+        message.className = 'error-message';
+        message.id = 'error-for-' + id; // If the field is a radio button or checkbox, insert error after the label
+
+        var label;
+
+        if (formField.type === 'radio' || formField.type === 'checkbox') {
+          label = formField.form.querySelector('label[for="' + id + '"]') || formField.parentNode;
+
+          if (label) {
+            label.parentNode.insertBefore(message, label.nextSibling);
+          }
+        } // Otherwise, insert it after the field
+
+
+        if (!label) {
+          formField.parentNode.appendChild(message);
+        }
+      }
+
+      return message;
+    }
+  }, {
+    key: "removeError",
+    value: function removeError(fieldInput) {
+      // Remove error class to field
+      fieldInput.classList.remove('error'); // Remove ARIA role from the field
+
+      fieldInput.removeAttribute('aria-describedby'); // If the field is a radio button and part of a group, remove error from all and get the last item in the group
+
+      if (fieldInput.type === 'radio' && fieldInput.name) {
+        var group = fieldInput.form.querySelectorAll('[name="' + fieldInput.name + '"]');
+
+        if (group.length > 0) {
+          for (var i = 0; i < group.length; i++) {
+            group[i].classList.remove('error');
+          }
+
+          fieldInput = group[group.length - 1];
+        }
+      } // Get field id or name
+
+
+      var id = fieldInput.id || fieldInput.name;
+      if (!id) return; // Check if an error message is in the DOM
+
+      var message = fieldInput.form.querySelector('.error-message#error-for-' + id);
+      if (!message) return; // If so, hide it
+
+      message.innerHTML = '';
+      message.style.display = 'none';
+      message.style.visibility = 'hidden';
+    }
+  }, {
+    key: "clearFields",
+    value: function clearFields() {
+      document.getElementById('firstName').value = '';
+      document.getElementById('lastName').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('message').value = '';
+
+      if (document.querySelector('#application-form')) {
+        document.getElementById('age').value = '';
+        document.getElementById('school').value = '';
+        document.getElementById('location').value = '';
+      }
+
+      var selectRadio = document.querySelectorAll('#person'); //Check which one is seleted and get it value
+
+      selectRadio.forEach(function (who) {
+        if (who.checked === true) {
+          who.value = '';
+        }
+      });
+    }
+  }]);
+
+  return UI;
+}(); /////////////////////////////////////////////////////
+//Function for Validation
+
+
+var checkVal = function checkVal(field) {
+  //Ignore some input fields
+  if (field.type === 'reset' || field.type === 'file') {
+    return;
+  } //else go on with the validation
+
+
+  var inputVal = field.validity; //this returns an object
+  //If radio button is not selected
+
+  if (field.type === 'radio') {
+    var selectRadio = document.getElementsByName('Person');
+
+    for (var i = 0; i < selectRadio.length; i++) {
+      //check if it is selected
+      if (selectRadio[0].checked === true) {
+        return '';
+      } else if (selectRadio[1].checked === true) {
+        return '';
+      } else {
+        return 'Please select one';
+      }
+    }
+  } // If valid, return null
+
+
+  if (inputVal.valid) return; //check if fields are empty
+
+  if (inputVal.valueMissing) {
+    return 'Please fill out this field.';
+  } //check if fields are the right type of data in them using pattern regex
+  // If not the right type
+
+
+  if (inputVal.typeMismatch) {
+    //Check the field type and respond accordingly
+    if (field.type === 'email') {
+      //Email
+      var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return regex.test(field.value) ? '' : 'Please enter a valid email address';
+    }
+
+    if (field.type === 'url') {
+      return 'Please enter a valid URL.';
+    } //else gotcha all
+
+
+    return 'Please use the correct input type.';
+  } //check if fields have the right length above min
+  // If too short
+
+
+  if (inputVal.tooShort) {
+    return 'Please lengthen this text to ' + field.getAttribute('minLength') + ' characters or more. You are currently using ' + field.value.length + ' characters.';
+  }
+
+  ; // If too long
+
+  if (inputVal.tooLong) {
+    return 'Please shorten this text to ' + field.getAttribute('maxLength') + ' characters or more. You are currently using ' + field.value.length + ' characters.';
+  }
+
+  ; // If number input isn't a number
+
+  if (inputVal.badInput) return 'Please enter a number.'; // If a number value doesn't match the step interval
+
+  if (inputVal.stepMismatch) return 'Please select a valid value.'; //check if a radio input is selected
+  // If all else fails, return a generic catchall error
+
+  return 'The value you entered for this field is invalid.';
+}; //////////////////////////////////////////////////////////////////
+//Event: Handles when input has been unfocus
+
+
+var formElm = document.querySelector('#application-form');
+
+if (formElm != null && formElm != undefined) {
+  formElm.addEventListener('blur', inputblur, true); //appFormElm.addEventListener('blur', inputblur, true);
+  //Stop Native Broswer validation behavoir
+
+  formElm.setAttribute('novalidate', true);
+  formElm.addEventListener('submit', appFormSubmission);
+} //Funtion for Blur
+
+
+function inputblur(e) {
+  //Check validity
+  var error = checkVal(e.target); //if there is an error
+
+  if (error) {
+    //get it to show on page
+    UI.showError(e.target, error);
+    return;
+  } //Remove error
+
+
+  UI.removeError(e.target);
+} //Handle form submission
+
+
+function appFormSubmission(e) {
+  e.preventDefault(); // Get all of the form elements
+
+  var fields = e.target.elements; // Validate each field
+  // Store the first field with an error to a variable so we can bring it into focus later
+
+  var error, hasErrors; //looping through the form elements
+
+  for (var i = 0; i < fields.length; i++) {
+    error = checkVal(fields[i]); //if there is error show it
+
+    if (error) {
+      UI.showError(fields[i], error);
+
+      if (!hasErrors) {
+        hasErrors = fields[i];
+      }
+    }
+  } // If there are errors, don't submit form but focus on first element with error
+
+
+  if (hasErrors) {
+    hasErrors.focus();
+    return;
+  } //Get Form data
+
+
+  var formData = new FormData(formElm); //if spam field is filled return
+
+  if (formData['gsen_hp']) {
+    return;
+  } //Make Ajax Request
+
+
+  makeRequest(formData);
+} //Function to handle the Ajax Request / Response
+
+
+function makeRequest(formData) {
+  //Make Ajax Request
+  fetch(form_info.form_url, {
+    method: 'POST',
+    body: formData
+  }).then(function (response) {
+    return response.json();
+  }).then(function (data) {
+    console.log(data);
+
+    if (data.success == false) {
+      formElm.querySelector('#formError').innerHTML = data.message;
+      removeErrorMessages();
+      data.input_errors.forEach(function (element) {
+        var inputField = formElm.querySelector('#' + element.field);
+        UI.showError(inputField, element.message);
+      });
+    } else {
+      formElm.querySelector('#formError').innerHTML = '';
+      formElm.querySelector('#success-msg').innerHTML = data.message;
+      removeErrorMessages();
+      formElm.reset();
+    }
+  })["catch"](function (error) {
+    console.log(error);
+  });
+} //Remove error message
+
+
+function removeErrorMessages() {
+  //Get all error message and hide them
+  var errorMessages = formElm.querySelectorAll('.error-message');
+  var inputFields = formElm.querySelectorAll('.inputField');
+
+  if (inputFields) {
+    inputFields.forEach(function (field) {
+      field.classList.remove('error');
+    });
+  }
+
+  if (errorMessages) {
+    errorMessages.forEach(function (element) {
+      element.innerHTML = '';
+      element.style.display = 'none';
+    });
+  }
+}
+
+/***/ }),
+
+/***/ "./assests/js/components/nav.js":
+/*!**************************************!*\
+  !*** ./assests/js/components/nav.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/*
+>> Mobile nav Js to show and hide on click of the menu
+*/
+(function () {
+  document.addEventListener("DOMContentLoaded", function () {
+    //Get the element
+    var menuBtn = document.querySelector('.mobile-container');
+    var dateElm = document.querySelector('#date');
+    var mainNav = document.querySelector('.main_nav'); //Use Js to change the year for the footer Copyright
+
+    dateElm.innerHTML = new Date().getFullYear(); //li items
+
+    var menuItems = document.querySelectorAll('.menu-item');
+    menuItems.forEach(function (item) {
+      if (item.classList.contains('menu-item-has-children')) {
+        item.addEventListener('click', function (e) {
+          var siblingElm = e.target.nextElementSibling;
+          siblingElm.classList.toggle('show-sub-menu');
+
+          if (siblingElm.style.maxHeight) {
+            siblingElm.style.maxHeight = null;
+          } else {
+            siblingElm.style.maxHeight = siblingElm.scrollHeight + 'px';
+          }
+        });
+      }
+    }); //Add event to click
+
+    menuBtn.addEventListener('click', showMenu); //function to do the showing of the elements
+
+    function showMenu() {
+      menuBtn.classList.toggle('change');
+      mainNav.classList.toggle('right-show');
+      mainNav.classList.toggle('mobile_nav');
+      menuItems.forEach(function (item) {
+        return item.classList.toggle('right-show');
+      });
+    }
+  });
+})();
+
+/***/ }),
+
+/***/ "./assests/js/components/scroll.js":
+/*!*****************************************!*\
+  !*** ./assests/js/components/scroll.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/*
+>> Show Nav when scroll up
+what goes into scroll event
+*/
+//get the value of the scroll position
+var prevScrollValue = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop; //AddEventListerner
+
+window.addEventListener('scroll', mainScrollFun); //Main function handling the calling of other functions when the scroll event is happening 
+
+function mainScrollFun() {
+  //Current scroll value
+  var scrollBarValue = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop; //Call the Navbar function
+
+  navBarscrollFun(scrollBarValue); //Show Top Arrow
+
+  showTopArrow(scrollBarValue);
+} ////////////////////////////////////////////////////////////
+//function to Hide/Show the Navbar when scrolled down and up respestively
+
+
+function navBarscrollFun(scrollValue) {
+  //Get the NavBar
+  var navBar = document.querySelector('#header'); //Make navbar show when scrolling to the top of the page
+  //Hide Navbar when Prev is greater that Current 
+
+  if (prevScrollValue > scrollValue) {
+    navBar.classList.add('reveal');
+  } else {
+    navBar.classList.remove('reveal');
+  } //Resets the value of the Prev
+
+
+  prevScrollValue = scrollValue;
+
+  if (prevScrollValue === 0) {
+    navBar.classList.remove('reveal');
+  }
+} ///////////////////////////////////////////////////////////////
+//Function to Show the Top Arrow
+
+
+function showTopArrow(currentScrollvalue) {
+  //Get the value of starting point to show the top arrow
+  var showcaseHeight = document.querySelector('.showcase').clientHeight; //check if the current scroll value is passed that of the window scrollY value
+
+  if (currentScrollvalue > showcaseHeight) {
+    document.querySelector('.top-arrow').classList.add('show-top-arrow');
+  } else {
+    document.querySelector('.top-arrow').classList.remove('show-top-arrow');
+  }
+} //Click Event for Top Arrow
+
+
+var topArrow = document.querySelector('.top-arrow');
+topArrow.addEventListener('click', function () {
+  smoothScrollFun('#header', 1000);
+}); //Function to scroll to top of the Page
+
+function smoothScrollFun(setTarget, setDuration) {
+  var target = document.querySelector(setTarget); //where to animate to
+
+  var duration = setDuration; //how long it will take to animate
+
+  var targetPos = target.getBoundingClientRect().top; // relative size of the top of the traget
+
+  var startPos = window.pageYOffset; //Current Position of the scrollBar
+
+  var distace = targetPos - startPos; //Distance between the top and scrollBar
+
+  var startTime = null; //start time for timer
+  //Actully animating function
+
+  function animateScroll(currentTime) {
+    if (startTime === null) startTime = currentTime;
+    var timeEplased = currentTime - startTime;
+    var run = easeInOut(timeEplased, startPos, distace, duration);
+    window.scrollTo(0, run);
+    if (timeEplased < duration) requestAnimationFrame(animateScroll);
+  } //Timing Function for transition
+
+
+  function easeInOut(t, b, c, d) {
+    t /= d / 2;
+    if (t < 1) return c / 2 * t * t + b;
+    t--;
+    return -c / 2 * (t * (t - 2) - 1) + b;
+  }
+
+  ; //requestAnimationframe has a callback of the timestamp
+
+  requestAnimationFrame(animateScroll);
+}
+
+/***/ }),
+
+/***/ "./assests/js/components/service.js":
+/*!******************************************!*\
+  !*** ./assests/js/components/service.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function () {
+  var colMain = document.querySelector('.col-row');
+
+  if (colMain) {
+    colMain.addEventListener('click', serviceDesc, true);
+  } //function to show sevice info
+
+
+  function serviceDesc(e) {
+    var rowCol = colMain.querySelectorAll('.col-3');
+    var rowLen = rowCol.length; //loop through them to add an event
+
+    for (var i = 0; i < rowLen; i++) {
+      var learnTags = rowCol[i].querySelectorAll('.strong');
+      var learnLen = learnTags.length;
+
+      for (var j = 0; j < learnLen; j++) {
+        var descTag = learnTags[j].parentNode.parentNode.nextElementSibling;
+
+        if (e.target === learnTags[j]) {
+          descTag.classList.add('show');
+          console.log('show');
+        } else {
+          descTag.classList.remove('show');
+        }
+      }
+    }
+  }
+})();
+
+/***/ }),
+
+/***/ "./assests/js/components/show.js":
+/*!***************************************!*\
+  !*** ./assests/js/components/show.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function () {
+  //Event on parrent
+  var wrap = document.querySelector('.wrap');
+
+  if (wrap != null && wrap != undefined) {
+    wrap.addEventListener('click', showDesc, true);
+  } //function to show the description
+
+
+  function showDesc(e) {
+    e.preventDefault();
+    var allImages = wrap.querySelectorAll('img');
+
+    for (var i = 0; i < allImages.length; i++) {
+      var desc = allImages[i].parentElement.parentElement.nextElementSibling;
+
+      if (e.target === allImages[i]) {
+        desc.classList.add('show');
+      } else {
+        desc.classList.remove('show');
+      }
+    }
+  }
+})();
+
+/***/ }),
+
+/***/ "./assests/js/main.js":
+/*!****************************!*\
+  !*** ./assests/js/main.js ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! ./components/nav.js */ "./assests/js/components/nav.js");
+
+__webpack_require__(/*! ./components/scroll.js */ "./assests/js/components/scroll.js");
+
+__webpack_require__(/*! ./components/service.js */ "./assests/js/components/service.js");
+
+__webpack_require__(/*! ./components/carousel.js */ "./assests/js/components/carousel.js");
+
+__webpack_require__(/*! ./components/accordion.js */ "./assests/js/components/accordion.js");
+
+__webpack_require__(/*! ./components/show.js */ "./assests/js/components/show.js");
+
+__webpack_require__(/*! ./components/form.js */ "./assests/js/components/form.js");
+
+__webpack_require__(/*! ./components/contact.js */ "./assests/js/components/contact.js");
+
+/***/ }),
+
+/***/ "./assests/sass/main.scss":
+/*!********************************!*\
+  !*** ./assests/sass/main.scss ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 0:
+/*!***********************************************************!*\
+  !*** multi ./assests/js/main.js ./assests/sass/main.scss ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! C:\xamppp\htdocs\SoccerSitetoWordpress\wp-content\themes\gsen\assests\js\main.js */"./assests/js/main.js");
+module.exports = __webpack_require__(/*! C:\xamppp\htdocs\SoccerSitetoWordpress\wp-content\themes\gsen\assests\sass\main.scss */"./assests/sass/main.scss");
+
+
+/***/ })
+
+/******/ });
 //# sourceMappingURL=main.js.map

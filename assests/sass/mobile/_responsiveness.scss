@@ -31,29 +31,6 @@
     flex: 0 0 50%;
     margin: 1.5rem 0;
   }
-  #founders .container .row-founder {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    margin: 40px auto;
-  }
-  #founders .container .row-founder .img-founder {
-    -ms-flex-preferred-size: 100%;
-    flex-basis: 100%;
-    height: 400px;
-    -webkit-box-ordinal-group: 2;
-    -ms-flex-order: 1;
-    order: 1;
-  }
-  #founders .container .row-founder .p-founder {
-    -ms-flex-preferred-size: 100%;
-    flex-basis: 100%;
-    -webkit-box-ordinal-group: 3;
-    -ms-flex-order: 2;
-    order: 2;
-    padding: 1.5rem 1rem;
-  }
   #missionVision {
     display: -webkit-box;
     display: -ms-flexbox;

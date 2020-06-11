@@ -18,9 +18,9 @@ get_header();
 <div id="banner" class="section_style">
 <div class="container">
   <p class="welcome">WELCOME TO GHANA SOCCER EDUCATION NETWORK</p>
-  <h1>We Provide Opportunites <br/>
+  <h1>Providing Opportunites <br/>
     For Student-Athletes<br/>
-    In Ghana & Beyond
+    In Ghana And Beyond
   </h1>
   <p class="tagline">We specialize in the recruiting process from researching which<br/>schools are a fit, to communicating with college coaches, to resources<br/>for SAT Prep, Ghana Soccer Education Network has you covered.</p>
   <a href="<?= home_url();?>/application" class="btn btn-primary">Get Started</a>
@@ -36,7 +36,7 @@ get_header();
       <!--Service-->
     <section class="row bgk_change" id="service">
       <h2 class="top_heading">
-          What we are do here
+          Our Service
       </h2>
       <div class="container">
       <div class="col-row">

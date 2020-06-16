@@ -167,7 +167,7 @@ get_header();
 
             <div class="ind-school-logo">
               <img src="<?php echo get_template_directory_uri();?>/assests/images/dayton-flyers.png" alt="Dayton Flyers Logo">
-              <span class="tooltip">Dayton Flyers</span>                                          
+              <span class="tooltip">University of Dayton</span>                                          
             </div>
           </div>
         </div>

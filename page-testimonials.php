@@ -28,8 +28,11 @@ get_header();
 <div class="container">
 <?php
 $args = array(
+  'post_type' => 'post',
+  'post_status' => 'publish',
   'category_name' => 'testimonial',
-  'order' => 'ASC'
+  'order' => 'ASC',
+  'posts_per_page' => -1
 );
 $mytestimonials = new WP_Query($args);
 while ( $mytestimonials->have_posts() ) :

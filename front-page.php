@@ -139,21 +139,35 @@ get_header();
               <img src="<?php echo get_template_directory_uri();?>/assests/images/liberty.png" alt="liberty university logo">
               <span class="tooltip">Liberty University</span>
             </div>
+
             <div class="ind-school-logo">
               <img src="<?php echo get_template_directory_uri();?>/assests/images/Delaware.png" alt="Delaware University logo">
               <span class="tooltip">Delaware University</span>
             </div>
+
             <div class="ind-school-logo">
               <img src="<?php echo get_template_directory_uri();?>/assests/images/Gccc.png" alt="Garden City Community College logo">
               <span class="tooltip" id="tooltipChange">Garden City Community College</span>
             </div>
+
             <div class="ind-school-logo">
               <img src="<?php echo get_template_directory_uri();?>/assests/images/newvt.png" alt="Virginia Tech Logo">
               <span class="tooltip">Virginia Tech</span>
             </div>
+
             <div class="ind-school-logo">
               <img src="<?php echo get_template_directory_uri();?>/assests/images/anderson.png" alt="Anderson University Logo">
               <span class="tooltip">Anderson University</span>
+            </div>
+
+            <div class="ind-school-logo">
+              <img src="<?php echo get_template_directory_uri();?>/assests/images/st-bonaventure-university.png" alt="St Bonaventure University Logo">
+              <span class="tooltip">St Bonaventure University</span>                                          
+            </div>
+
+            <div class="ind-school-logo">
+              <img src="<?php echo get_template_directory_uri();?>/assests/images/dayton-flyers.png" alt="Dayton Flyers Logo">
+              <span class="tooltip">Dayton Flyers</span>                                          
             </div>
           </div>
         </div>

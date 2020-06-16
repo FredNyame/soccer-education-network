@@ -97,6 +97,22 @@
   color: #575757;
 }
 
+#founders .row-founder .p-founder a {
+  display: block;
+  width: auto;
+  margin-top: 1.25rem;
+
+  i {
+    font-size: 2.125rem;
+    color: #575757;
+    transition: all 300ms;
+
+    &:hover {
+      color: #F01D1D;
+    }
+  }
+}
+
 .mission-row{
   padding:  100px 0px;
 }

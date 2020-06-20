@@ -90,8 +90,8 @@ header.top .header-container .main_nav .menu .menu-item-has-children .sub-menu {
   position: absolute;
   background: #272525;
   min-width: 250px;
-  top: 35px;
-  left: 0px;
+  top: 30px;
+  left: 10px;
   -webkit-transition: all 0.5s ease-in-out;
   transition: opacity 300ms, visibility 300ms;
 
@@ -146,12 +146,12 @@ header.top .header-container .main_nav .menu .menu-item-has-children .sub-menu .
 
 header.top .header-container .main_nav .menu .menu-item-has-children .sub-menu:before {
   position: absolute;
-  content: '\f0d8';
-  font-family: "Font Awesome 5 Free";
-  font-size: 50px;
-  top: -44px;
-  left: 10px;
+  content: '\0025E4';
+  top: -12px;
+  left: 12px;
   color: #272525;
+  transform: rotate(45deg);
+  z-index: 1;
 }
 
 @media screen and (min-width: 1025px) {

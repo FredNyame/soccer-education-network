@@ -141,7 +141,7 @@ class Theme
    * Enqueue scripts and styles.
    */
   public function gsen_styles() {
-    wp_enqueue_style( 'font-awesome-style', 'https://use.fontawesome.com/releases/v5.7.1/css/all.css', array(),'' );
+    wp_enqueue_style( 'font-awesome-style', 'https://use.fontawesome.com/releases/v5.10.2/css/all.css', array(),'' );
 
     wp_enqueue_style( 'custom-style', get_template_directory_uri().'/assests/dist/css/main.css', array(),'1.0.0' );
   }

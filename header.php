@@ -40,26 +40,26 @@ $page_slug = $post->post_name;
 <!--Header-->
 	<header id="header" class="top">
 		<div class="header-container">
-	<!--logo-->
-			<div class="logo">
-				<a href="<?= home_url();?>">
-					<img src="<?= get_template_directory_uri();?>/assests/images/new-logogsen.svg" alt="">
-				</a>
-			</div>
-	<!--Menu-->
-			<nav class="main_nav">
-				<?php
-				wp_nav_menu( array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				) );
-				?>
-			</nav><!-- #site-navigation -->
-			<!--Mobile Menu-->
-			<div class="mobile-container">
-				<div class="menu" id="bar1"></div>
-				<div class="menu" id="bar2"></div>
-				<div class="menu" id="bar3"></div>
-			</div>
+		<!--logo-->
+		<div class="logo">
+			<a href="<?= home_url();?>">
+				<img src="<?= get_template_directory_uri();?>/assests/images/ghsen-logo-new.svg" alt="Ghana Soccer Education Network Logo">
+			</a>
+		</div>
+		<!--Menu-->
+		<nav class="main_nav">
+			<?php
+			wp_nav_menu( array(
+				'theme_location' => 'menu-1',
+				'menu_id'        => 'primary-menu',
+			) );
+			?>
+		</nav><!-- #site-navigation -->
+		<!--Mobile Menu-->
+		<div class="mobile-container">
+			<div class="menu" id="bar1"></div>
+			<div class="menu" id="bar2"></div>
+			<div class="menu" id="bar3"></div>
+		</div>
 		</div>
 	</header><!-- #masthead -->
